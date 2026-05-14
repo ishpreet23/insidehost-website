@@ -132,7 +132,7 @@ export default function Hero() {
 
           {/* FULL SIZE GIRL IMAGE */}
           <img
-            src="/girl image.png"
+            src="/girl-image.png"
             alt="InsideHost Designer"
             className="
               relative
