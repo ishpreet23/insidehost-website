@@ -1,0 +1,28 @@
+import mongoose from "mongoose";
+
+const FeedbackSchema =
+  new mongoose.Schema(
+    {
+      name: {
+        type: String,
+        required: true,
+      },
+
+      review: {
+        type: String,
+        required: true,
+      },
+    },
+    {
+      timestamps: true,
+    }
+  );
+
+const Feedback =
+  mongoose.models.Feedback ||
+  mongoose.model(
+    "Feedback",
+    FeedbackSchema
+  );
+
+export default Feedback;

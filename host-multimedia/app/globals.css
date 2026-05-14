@@ -1,0 +1,85 @@
+/* ✅ Tailwind v4 import */
+@import "tailwindcss";
+
+/* =========================
+   🌈 PREMIUM ANIMATED BACKGROUND
+========================= */
+
+:root {
+  --bg1: #f9fafb;
+  --bg2: #eef2ff;
+  --bg3: #f3e8ff;
+  --bg4: #e0f2fe;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(
+    270deg,
+    var(--bg1),
+    var(--bg2),
+    var(--bg3),
+    var(--bg4)
+  );
+  background-size: 600% 600%;
+  animation: gradientMove 18s ease infinite;
+  overflow-x: hidden;
+}
+
+/* 🔁 Gradient Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* =========================
+   💡 FLOATING BLOBS
+========================= */
+
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 9999px;
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: 0;
+  animation: floatBlob 20s ease-in-out infinite;
+}
+
+.blob-purple {
+  background: #a78bfa;
+  top: -150px;
+  left: -150px;
+}
+
+.blob-blue {
+  background: #60a5fa;
+  bottom: -150px;
+  right: -150px;
+  animation-delay: 5s;
+}
+
+/* 🔁 Blob Animation */
+@keyframes floatBlob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  50% {
+    transform: translate(60px, -60px) scale(1.1);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
