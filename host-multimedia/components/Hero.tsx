@@ -38,15 +38,29 @@ export default function Hero() {
 
       {/* ================= MAIN GRID ================= */}
 
-      <div className="relative z-10 grid lg:grid-cols-2 gap-6 xl:gap-10 items-center w-full">
-
+      <div
+        className="
+          relative
+          z-10
+          grid
+          lg:grid-cols-2
+          gap-6
+          xl:gap-10
+          2xl:gap-14
+          items-center
+          w-full
+        "
+      >
         {/* ================= LEFT SIDE ================= */}
 
         <motion.div
           initial={{ opacity: 0, y: 70 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-[760px]"
+          className="
+            max-w-[720px]
+            2xl:max-w-[900px]
+          "
         >
           {/* TAG */}
 
@@ -66,12 +80,16 @@ export default function Hero() {
             className="
               font-black
               leading-[0.9]
+
               text-[42px]
-              sm:text-[54px]
-              md:text-[64px]
-              lg:text-[72px]
-              xl:text-[84px]
-              2xl:text-[105px]
+              sm:text-[52px]
+              md:text-[60px]
+
+              lg:text-[64px]
+
+              xl:text-[74px]
+
+              2xl:text-[96px]
             "
           >
             We Design <br />
@@ -93,11 +111,16 @@ export default function Hero() {
               text-gray-400
               leading-relaxed
               max-w-2xl
+
               text-[16px]
-              sm:text-[18px]
-              md:text-[19px]
-              xl:text-[22px]
-              2xl:text-[26px]
+              sm:text-[17px]
+              md:text-[18px]
+
+              lg:text-[18px]
+
+              xl:text-[20px]
+
+              2xl:text-[24px]
             "
           >
             We craft premium branding experiences through
@@ -120,16 +143,23 @@ export default function Hero() {
                   py-4
                   sm:px-9
                   sm:py-5
+
                   rounded-2xl
                   bg-gradient-to-r
                   from-purple-500
                   via-pink-500
                   to-blue-500
+
                   text-white
                   font-semibold
+
                   text-[15px]
-                  sm:text-[17px]
-                  xl:text-[19px]
+                  sm:text-[16px]
+
+                  xl:text-[18px]
+
+                  2xl:text-[22px]
+
                   shadow-[0_20px_60px_rgba(99,102,241,0.35)]
                   hover:scale-105
                   transition
@@ -155,17 +185,24 @@ export default function Hero() {
                   py-4
                   sm:px-9
                   sm:py-5
+
                   rounded-2xl
                   border
                   border-white/10
                   bg-white/5
                   backdrop-blur-xl
                   hover:bg-white/10
+
                   text-white
-                  text-[15px]
-                  sm:text-[17px]
-                  xl:text-[19px]
                   font-semibold
+
+                  text-[15px]
+                  sm:text-[16px]
+
+                  xl:text-[18px]
+
+                  2xl:text-[22px]
+
                   hover:scale-105
                   transition
                   duration-300
@@ -184,11 +221,11 @@ export default function Hero() {
 
             <div>
 
-              <h3 className="text-[42px] xl:text-[48px] 2xl:text-[62px] font-bold text-white">
+              <h3 className="text-[38px] xl:text-[44px] 2xl:text-[58px] font-bold text-white">
                 120+
               </h3>
 
-              <p className="text-gray-400 text-sm sm:text-base xl:text-lg mt-2">
+              <p className="text-gray-400 text-sm sm:text-base xl:text-lg 2xl:text-[22px] mt-2">
                 Projects Completed
               </p>
 
@@ -196,11 +233,11 @@ export default function Hero() {
 
             <div>
 
-              <h3 className="text-[42px] xl:text-[48px] 2xl:text-[62px] font-bold text-white">
+              <h3 className="text-[38px] xl:text-[44px] 2xl:text-[58px] font-bold text-white">
                 50+
               </h3>
 
-              <p className="text-gray-400 text-sm sm:text-base xl:text-lg mt-2">
+              <p className="text-gray-400 text-sm sm:text-base xl:text-lg 2xl:text-[22px] mt-2">
                 Happy Clients
               </p>
 
@@ -208,11 +245,11 @@ export default function Hero() {
 
             <div>
 
-              <h3 className="text-[42px] xl:text-[48px] 2xl:text-[62px] font-bold text-white">
+              <h3 className="text-[38px] xl:text-[44px] 2xl:text-[58px] font-bold text-white">
                 4.8★
               </h3>
 
-              <p className="text-gray-400 text-sm sm:text-base xl:text-lg mt-2">
+              <p className="text-gray-400 text-sm sm:text-base xl:text-lg 2xl:text-[22px] mt-2">
                 Client Rating
               </p>
 
@@ -235,8 +272,11 @@ export default function Hero() {
             justify-end
             items-end
             w-full
+
             h-[700px]
+
             xl:h-[850px]
+
             2xl:h-[1050px]
           "
         >
@@ -247,16 +287,21 @@ export default function Hero() {
               absolute
               right-[-40px]
               bottom-[-20px]
+
               w-[700px]
               h-[700px]
+
               xl:w-[900px]
               xl:h-[900px]
+
               2xl:w-[1150px]
               2xl:h-[1150px]
+
               bg-gradient-to-r
               from-purple-500/25
               via-pink-500/15
               to-blue-500/25
+
               blur-[220px]
               rounded-full
             "
@@ -270,16 +315,24 @@ export default function Hero() {
             className="
               relative
               z-10
-              w-[650px]
-              xl:w-[850px]
-              2xl:w-[1100px]
+
+              w-[620px]
+
+              xl:w-[820px]
+
+              2xl:w-[1050px]
+
               max-w-none
               h-auto
               object-contain
+
               drop-shadow-[0_30px_120px_rgba(168,85,247,0.45)]
+
               select-none
               pointer-events-none
+
               translate-x-4
+              2xl:translate-x-10
             "
           />
 
