@@ -48,7 +48,7 @@ export default function Navbar() {
     >
       {/* ================= NAVBAR ================= */}
 
-      <div className="relative flex items-center justify-between px-6 md:px-16 py-5 overflow-hidden">
+      <div className="relative flex items-center justify-between px-4 sm:px-6 md:px-10 xl:px-16 py-4 md:py-5 overflow-hidden">
 
         {/* GLOW */}
 
@@ -68,10 +68,13 @@ export default function Navbar() {
         >
           <h1
             className="
-              text-[38px]
-              md:text-[58px]
+              text-[30px]
+              sm:text-[38px]
+              md:text-[50px]
+              xl:text-[58px]
               font-[200]
-              tracking-[-4px]
+              tracking-[-2px]
+              md:tracking-[-4px]
               lowercase
               text-white
               leading-[0.9]
@@ -87,12 +90,13 @@ export default function Navbar() {
 
         {/* DESKTOP MENU */}
 
-        <div className="hidden md:flex items-center gap-14">
+        <div className="hidden lg:flex items-center gap-8 xl:gap-14">
 
           {/* HOME */}
+
           <button
             onClick={() => scrollToSection("#home")}
-            className="relative text-gray-300 hover:text-white text-[17px] font-medium tracking-wide transition-all duration-300 group"
+            className="relative text-gray-300 hover:text-white text-[16px] xl:text-[17px] font-medium tracking-wide transition-all duration-300 group"
           >
             Home
 
@@ -100,9 +104,10 @@ export default function Navbar() {
           </button>
 
           {/* ABOUT */}
+
           <button
             onClick={() => scrollToSection("#about")}
-            className="relative text-gray-300 hover:text-white text-[17px] font-medium tracking-wide transition-all duration-300 group"
+            className="relative text-gray-300 hover:text-white text-[16px] xl:text-[17px] font-medium tracking-wide transition-all duration-300 group"
           >
             About Us
 
@@ -110,9 +115,10 @@ export default function Navbar() {
           </button>
 
           {/* SERVICES */}
+
           <button
             onClick={() => scrollToSection("#services")}
-            className="relative text-gray-300 hover:text-white text-[17px] font-medium tracking-wide transition-all duration-300 group"
+            className="relative text-gray-300 hover:text-white text-[16px] xl:text-[17px] font-medium tracking-wide transition-all duration-300 group"
           >
             Services
 
@@ -120,9 +126,10 @@ export default function Navbar() {
           </button>
 
           {/* PORTFOLIO */}
+
           <button
             onClick={() => scrollToSection("#portfolio")}
-            className="relative text-gray-300 hover:text-white text-[17px] font-medium tracking-wide transition-all duration-300 group"
+            className="relative text-gray-300 hover:text-white text-[16px] xl:text-[17px] font-medium tracking-wide transition-all duration-300 group"
           >
             Featured Work
 
@@ -133,7 +140,7 @@ export default function Navbar() {
 
         {/* FEEDBACK BUTTON */}
 
-        <div className="hidden md:flex items-center">
+        <div className="hidden lg:flex items-center">
 
           <button
             onClick={() => scrollToSection("#feedback")}
@@ -141,7 +148,8 @@ export default function Navbar() {
               group
               relative
               overflow-hidden
-              px-8
+              px-6
+              xl:px-8
               py-3
               rounded-2xl
               bg-gradient-to-r
@@ -149,6 +157,8 @@ export default function Navbar() {
               via-pink-500
               to-blue-500
               text-white
+              text-sm
+              xl:text-base
               font-semibold
               shadow-[0_15px_50px_rgba(99,102,241,0.35)]
               hover:scale-105
@@ -161,6 +171,7 @@ export default function Navbar() {
             </span>
 
             <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition duration-1000 bg-white/20 skew-x-12"></div>
+
           </button>
 
         </div>
@@ -169,10 +180,11 @@ export default function Navbar() {
 
         <button
           onClick={() => setOpen(!open)}
-          className="md:hidden text-white text-2xl z-20"
+          className="lg:hidden text-white text-2xl sm:text-3xl z-20"
         >
           {open ? <FaTimes /> : <FaBars />}
         </button>
+
       </div>
 
       {/* MOBILE MENU */}
@@ -183,7 +195,7 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.35 }}
           className="
-            md:hidden
+            lg:hidden
             bg-[#050510]/95
             backdrop-blur-2xl
             border-t
@@ -195,6 +207,7 @@ export default function Navbar() {
             py-10
           "
         >
+
           <button
             onClick={() => scrollToSection("#home")}
             className="text-gray-300 hover:text-white transition text-lg"
@@ -239,8 +252,10 @@ export default function Navbar() {
           >
             Feedback →
           </button>
+
         </motion.div>
       )}
+
     </motion.nav>
   );
 }

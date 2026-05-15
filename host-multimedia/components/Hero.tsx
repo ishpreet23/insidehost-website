@@ -14,12 +14,13 @@ export default function Hero() {
         min-h-screen
         flex
         items-center
-        pt-28
+        pt-24
+        lg:pt-28
         px-5
         sm:px-8
-        md:px-14
-        xl:px-24
-        2xl:px-36
+        md:px-12
+        xl:px-20
+        2xl:px-32
         bg-gradient-to-br
         from-[#070710]
         via-[#0f0f1a]
@@ -37,7 +38,7 @@ export default function Hero() {
 
       {/* ================= MAIN GRID ================= */}
 
-      <div className="relative z-10 grid lg:grid-cols-2 gap-10 items-center w-full">
+      <div className="relative z-10 grid lg:grid-cols-2 gap-6 xl:gap-10 items-center w-full">
 
         {/* ================= LEFT SIDE ================= */}
 
@@ -45,11 +46,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 70 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-[900px]"
+          className="max-w-[760px]"
         >
           {/* TAG */}
 
-          <div className="inline-flex items-center gap-3 px-4 py-2 sm:px-5 sm:py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-8 shadow-[0_0_40px_rgba(168,85,247,0.25)]">
+          <div className="inline-flex items-center gap-3 px-4 py-2 sm:px-5 sm:py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-7 shadow-[0_0_40px_rgba(168,85,247,0.25)]">
 
             <div className="w-3 h-3 rounded-full bg-purple-400 animate-pulse shadow-[0_0_20px_rgba(168,85,247,0.9)]"></div>
 
@@ -64,13 +65,13 @@ export default function Hero() {
           <h1
             className="
               font-black
-              leading-[0.92]
-              text-[52px]
-              sm:text-[68px]
-              md:text-[82px]
-              lg:text-[88px]
-              xl:text-[105px]
-              2xl:text-[135px]
+              leading-[0.9]
+              text-[42px]
+              sm:text-[54px]
+              md:text-[64px]
+              lg:text-[72px]
+              xl:text-[84px]
+              2xl:text-[105px]
             "
           >
             We Design <br />
@@ -88,15 +89,15 @@ export default function Hero() {
 
           <p
             className="
-              mt-8
+              mt-7
               text-gray-400
               leading-relaxed
               max-w-2xl
-              text-base
-              sm:text-lg
-              md:text-xl
-              xl:text-2xl
-              2xl:text-[30px]
+              text-[16px]
+              sm:text-[18px]
+              md:text-[19px]
+              xl:text-[22px]
+              2xl:text-[26px]
             "
           >
             We craft premium branding experiences through
@@ -106,7 +107,7 @@ export default function Hero() {
 
           {/* BUTTONS */}
 
-          <div className="mt-10 flex gap-5 flex-wrap">
+          <div className="mt-9 flex gap-4 flex-wrap">
 
             <a href="#portfolio">
 
@@ -117,7 +118,7 @@ export default function Hero() {
                   overflow-hidden
                   px-7
                   py-4
-                  sm:px-10
+                  sm:px-9
                   sm:py-5
                   rounded-2xl
                   bg-gradient-to-r
@@ -126,9 +127,9 @@ export default function Hero() {
                   to-blue-500
                   text-white
                   font-semibold
-                  text-base
-                  sm:text-lg
-                  xl:text-xl
+                  text-[15px]
+                  sm:text-[17px]
+                  xl:text-[19px]
                   shadow-[0_20px_60px_rgba(99,102,241,0.35)]
                   hover:scale-105
                   transition
@@ -152,7 +153,7 @@ export default function Hero() {
                 className="
                   px-7
                   py-4
-                  sm:px-10
+                  sm:px-9
                   sm:py-5
                   rounded-2xl
                   border
@@ -161,9 +162,9 @@ export default function Hero() {
                   backdrop-blur-xl
                   hover:bg-white/10
                   text-white
-                  text-base
-                  sm:text-lg
-                  xl:text-xl
+                  text-[15px]
+                  sm:text-[17px]
+                  xl:text-[19px]
                   font-semibold
                   hover:scale-105
                   transition
@@ -179,11 +180,11 @@ export default function Hero() {
 
           {/* STATS */}
 
-          <div className="flex gap-10 sm:gap-14 mt-16 flex-wrap">
+          <div className="flex gap-10 sm:gap-14 mt-14 flex-wrap">
 
             <div>
 
-              <h3 className="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white">
+              <h3 className="text-[42px] xl:text-[48px] 2xl:text-[62px] font-bold text-white">
                 120+
               </h3>
 
@@ -195,7 +196,7 @@ export default function Hero() {
 
             <div>
 
-              <h3 className="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white">
+              <h3 className="text-[42px] xl:text-[48px] 2xl:text-[62px] font-bold text-white">
                 50+
               </h3>
 
@@ -207,7 +208,7 @@ export default function Hero() {
 
             <div>
 
-              <h3 className="text-3xl sm:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-white">
+              <h3 className="text-[42px] xl:text-[48px] 2xl:text-[62px] font-bold text-white">
                 4.8★
               </h3>
 
@@ -234,9 +235,9 @@ export default function Hero() {
             justify-end
             items-end
             w-full
-            h-[850px]
-            xl:h-[1050px]
-            2xl:h-[1300px]
+            h-[700px]
+            xl:h-[850px]
+            2xl:h-[1050px]
           "
         >
           {/* BIG GLOW */}
@@ -244,14 +245,14 @@ export default function Hero() {
           <div
             className="
               absolute
-              right-[-100px]
-              bottom-[-50px]
-              w-[850px]
-              h-[850px]
-              xl:w-[1100px]
-              xl:h-[1100px]
-              2xl:w-[1400px]
-              2xl:h-[1400px]
+              right-[-40px]
+              bottom-[-20px]
+              w-[700px]
+              h-[700px]
+              xl:w-[900px]
+              xl:h-[900px]
+              2xl:w-[1150px]
+              2xl:h-[1150px]
               bg-gradient-to-r
               from-purple-500/25
               via-pink-500/15
@@ -269,16 +270,16 @@ export default function Hero() {
             className="
               relative
               z-10
-              w-[850px]
-              xl:w-[1100px]
-              2xl:w-[1450px]
+              w-[650px]
+              xl:w-[850px]
+              2xl:w-[1100px]
               max-w-none
               h-auto
               object-contain
               drop-shadow-[0_30px_120px_rgba(168,85,247,0.45)]
               select-none
               pointer-events-none
-              translate-x-20
+              translate-x-4
             "
           />
 
