@@ -22,8 +22,8 @@ export default function Hero() {
         min-h-screen
         flex
         items-center
-        pt-24
-        lg:pt-28
+        py-24
+        lg:py-28
         px-5
         sm:px-8
         md:px-12
@@ -49,8 +49,8 @@ export default function Hero() {
           z-10
           grid
           lg:grid-cols-2
-          gap-10
-          xl:gap-16
+          gap-14
+          xl:gap-20
           items-center
           w-full
         "
@@ -61,9 +61,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 70 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="
-            max-w-[700px]
-          "
+          className="max-w-[720px]"
         >
           {/* TAG */}
 
@@ -72,21 +70,14 @@ export default function Hero() {
               inline-flex
               items-center
               gap-3
-
               px-5
               py-3
-
               rounded-full
-
               border
               border-white/10
-
               bg-white/[0.04]
-
               backdrop-blur-xl
-
               mb-7
-
               shadow-[0_0_40px_rgba(168,85,247,0.15)]
             "
           >
@@ -103,7 +94,6 @@ export default function Hero() {
             className="
               font-black
               leading-[0.9]
-
               text-[58px]
               sm:text-[72px]
               md:text-[82px]
@@ -127,13 +117,9 @@ export default function Hero() {
           <p
             className="
               mt-8
-
               text-gray-400
-
               leading-[1.8]
-
               max-w-[720px]
-
               text-[17px]
               xl:text-[20px]
             "
@@ -154,26 +140,18 @@ export default function Hero() {
                   group
                   relative
                   overflow-hidden
-
                   px-10
                   py-5
-
                   rounded-2xl
-
                   bg-gradient-to-r
                   from-purple-500
                   via-pink-500
                   to-blue-500
-
                   text-white
                   font-semibold
-
                   text-lg
-
                   shadow-[0_20px_80px_rgba(99,102,241,0.4)]
-
                   hover:scale-105
-
                   transition-all
                   duration-300
                 "
@@ -194,23 +172,15 @@ export default function Hero() {
                 className="
                   px-10
                   py-5
-
                   rounded-2xl
-
                   border
                   border-white/10
-
                   bg-white/[0.04]
-
                   backdrop-blur-xl
-
                   hover:bg-white/[0.08]
-
                   text-white
                   font-semibold
-
                   text-lg
-
                   transition-all
                   duration-300
                 "
@@ -227,10 +197,8 @@ export default function Hero() {
           <div
             className="
               mt-14
-
               flex
               flex-wrap
-
               gap-8
               xl:gap-12
             "
@@ -243,16 +211,12 @@ export default function Hero() {
                 className="
                   w-16
                   h-16
-
                   rounded-2xl
-
                   bg-gradient-to-br
                   from-purple-500/20
                   to-pink-500/10
-
                   border
                   border-purple-500/20
-
                   flex
                   items-center
                   justify-center
@@ -281,16 +245,12 @@ export default function Hero() {
                 className="
                   w-16
                   h-16
-
                   rounded-2xl
-
                   bg-gradient-to-br
                   from-pink-500/20
                   to-purple-500/10
-
                   border
                   border-pink-500/20
-
                   flex
                   items-center
                   justify-center
@@ -319,16 +279,12 @@ export default function Hero() {
                 className="
                   w-16
                   h-16
-
                   rounded-2xl
-
                   bg-gradient-to-br
                   from-blue-500/20
                   to-purple-500/10
-
                   border
                   border-blue-500/20
-
                   flex
                   items-center
                   justify-center
@@ -366,15 +322,13 @@ export default function Hero() {
             w-full
           "
         >
-          {/* MAIN PREMIUM CARD */}
+          {/* MAIN CARD */}
 
           <div
             className="
               relative
-
               w-full
-
-              max-w-[760px]
+              max-w-[850px]
 
               rounded-[42px]
 
@@ -390,29 +344,32 @@ export default function Hero() {
 
               overflow-hidden
 
-              p-8
-              xl:p-10
+              px-8
+              pt-8
+              pb-8
+
+              xl:px-10
+              xl:pt-10
+              xl:pb-10
 
               shadow-[0_0_80px_rgba(168,85,247,0.18)]
             "
           >
-            {/* OUTER GLOW */}
+            {/* OUTER BORDER */}
 
             <div
               className="
                 absolute
                 inset-0
-
                 rounded-[42px]
-
                 border
                 border-white/5
               "
             ></div>
 
-            {/* DOTS */}
+            {/* DOT GRID */}
 
-            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:22px_22px]"></div>
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,rgba(255,255,255,0.35)_1px,transparent_1px)] bg-[size:22px_22px]"></div>
 
             {/* BADGE */}
 
@@ -425,7 +382,7 @@ export default function Hero() {
                 items-center
                 gap-2
 
-                px-5
+                px-6
                 py-3
 
                 rounded-full
@@ -436,10 +393,9 @@ export default function Hero() {
                 bg-purple-500/10
 
                 text-white/90
-
                 text-xs
 
-                tracking-[3px]
+                tracking-[4px]
 
                 backdrop-blur-xl
               "
@@ -447,30 +403,27 @@ export default function Hero() {
               ✦ CREATIVE DESIGN STUDIO
             </div>
 
-            {/* IMAGE SECTION */}
+            {/* IMAGE */}
 
             <div
               className="
                 relative
-
                 flex
                 justify-center
                 items-center
-
                 pt-6
               "
             >
-              {/* CLEAN GLOW BEHIND GIRL */}
+              {/* GLOW */}
 
               <div
                 className="
                   absolute
+                  w-[460px]
+                  h-[460px]
 
-                  w-[320px]
-                  h-[320px]
-
-                  xl:w-[420px]
-                  xl:h-[420px]
+                  xl:w-[580px]
+                  xl:h-[580px]
 
                   rounded-full
 
@@ -479,9 +432,7 @@ export default function Hero() {
                   via-purple-500/25
                   to-blue-500/30
 
-                  blur-[90px]
-
-                  opacity-90
+                  blur-[120px]
                 "
               ></div>
 
@@ -490,15 +441,13 @@ export default function Hero() {
               <div
                 className="
                   absolute
+                  w-[580px]
+                  h-[580px]
 
-                  w-[380px]
-                  h-[380px]
-
-                  xl:w-[480px]
-                  xl:h-[480px]
+                  xl:w-[700px]
+                  xl:h-[700px]
 
                   rounded-full
-
                   border
                   border-purple-400/20
                 "
@@ -506,25 +455,29 @@ export default function Hero() {
 
               {/* IMAGE */}
 
-              <img
-                src="/girl-image.png"
-                alt="InsideHost Designer"
+              <motion.img
+                animate={{
+                  y: [0, -12, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                src="/pp.png"
+                alt="InsideHost"
                 className="
                   relative
                   z-10
 
                   w-full
 
-                  max-w-[300px]
-                  xl:max-w-[400px]
+                  max-w-[520px]
+                  xl:max-w-[640px]
 
-                  h-auto
                   object-contain
 
-                  drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]
-
-                  select-none
-                  pointer-events-none
+                  drop-shadow-[0_30px_80px_rgba(0,0,0,0.45)]
                 "
               />
             </div>
@@ -535,20 +488,18 @@ export default function Hero() {
               className="
                 relative
                 z-10
-
                 text-center
-
-                mt-2
+                -mt-2
               "
             >
               <h3
                 className="
                   font-black
 
-                  text-[42px]
-                  xl:text-[54px]
+                  text-[58px]
+                  xl:text-[76px]
 
-                  leading-tight
+                  leading-none
 
                   bg-gradient-to-r
                   from-pink-400
@@ -559,23 +510,22 @@ export default function Hero() {
                   text-transparent
                 "
               >
-                Why We Design
+                How we design?
               </h3>
 
               <p
                 className="
-                  mt-5
+                  mt-6
 
                   text-gray-300
 
-                  leading-[1.7]
+                  leading-[1.8]
 
-                  max-w-[620px]
-
+                  max-w-[720px]
                   mx-auto
 
-                  text-[18px]
-                  xl:text-[22px]
+                  text-[19px]
+                  xl:text-[23px]
                 "
               >
                 Great design is more than aesthetics —
@@ -588,7 +538,7 @@ export default function Hero() {
 
             <div className="relative z-10 h-px w-full bg-white/10 my-10"></div>
 
-            {/* FEATURES */}
+            {/* CARDS */}
 
             <div
               className="
@@ -601,32 +551,36 @@ export default function Hero() {
                 gap-5
               "
             >
-              {/* CARD */}
+              {/* CARD 1 */}
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-[30px]
 
                   border
-                  border-white/10
+                  border-pink-500/20
 
-                  bg-white/[0.03]
+                  bg-gradient-to-br
+                  from-pink-500/10
+                  to-transparent
 
-                  p-5
+                  p-6
 
                   backdrop-blur-xl
+
+                  hover:-translate-y-2
+                  transition-all
+                  duration-300
                 "
               >
                 <div
                   className="
-                    w-14
-                    h-14
+                    w-16
+                    h-16
 
                     rounded-2xl
 
-                    bg-gradient-to-br
-                    from-pink-500/20
-                    to-purple-500/10
+                    bg-pink-500/10
 
                     border
                     border-pink-500/20
@@ -635,47 +589,54 @@ export default function Hero() {
                     items-center
                     justify-center
 
-                    mb-5
+                    mb-6
                   "
                 >
-                  <Gem className="w-7 h-7 text-pink-400" />
+                  <Gem className="w-8 h-8 text-pink-400" />
                 </div>
 
-                <h4 className="text-white font-bold text-[20px]">
-                  Premium Quality
+                <h4 className="text-white font-bold text-[24px] leading-tight">
+                  Research
+                  <br />
+                  & Strategy
                 </h4>
 
-                <p className="text-gray-400 mt-3 leading-relaxed text-[16px]">
-                  High-end visuals crafted with precision and creativity.
+                <p className="text-gray-400 mt-4 leading-relaxed text-[16px]">
+                  We study your audience, niche and
+                  market positioning before crafting visuals.
                 </p>
               </div>
 
-              {/* CARD */}
+              {/* CARD 2 */}
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-[30px]
 
                   border
-                  border-white/10
+                  border-purple-500/20
 
-                  bg-white/[0.03]
+                  bg-gradient-to-br
+                  from-purple-500/10
+                  to-transparent
 
-                  p-5
+                  p-6
 
                   backdrop-blur-xl
+
+                  hover:-translate-y-2
+                  transition-all
+                  duration-300
                 "
               >
                 <div
                   className="
-                    w-14
-                    h-14
+                    w-16
+                    h-16
 
                     rounded-2xl
 
-                    bg-gradient-to-br
-                    from-purple-500/20
-                    to-blue-500/10
+                    bg-purple-500/10
 
                     border
                     border-purple-500/20
@@ -684,47 +645,54 @@ export default function Hero() {
                     items-center
                     justify-center
 
-                    mb-5
+                    mb-6
                   "
                 >
-                  <Zap className="w-7 h-7 text-purple-400" />
+                  <Zap className="w-8 h-8 text-purple-400" />
                 </div>
 
-                <h4 className="text-white font-bold text-[20px]">
-                  Fast Delivery
+                <h4 className="text-white font-bold text-[24px] leading-tight">
+                  Creative
+                  <br />
+                  Execution
                 </h4>
 
-                <p className="text-gray-400 mt-3 leading-relaxed text-[16px]">
-                  Quick turnaround without compromising on quality.
+                <p className="text-gray-400 mt-4 leading-relaxed text-[16px]">
+                  We combine premium aesthetics,
+                  motion and storytelling for impactful visuals.
                 </p>
               </div>
 
-              {/* CARD */}
+              {/* CARD 3 */}
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-[30px]
 
                   border
-                  border-white/10
+                  border-blue-500/20
 
-                  bg-white/[0.03]
+                  bg-gradient-to-br
+                  from-blue-500/10
+                  to-transparent
 
-                  p-5
+                  p-6
 
                   backdrop-blur-xl
+
+                  hover:-translate-y-2
+                  transition-all
+                  duration-300
                 "
               >
                 <div
                   className="
-                    w-14
-                    h-14
+                    w-16
+                    h-16
 
                     rounded-2xl
 
-                    bg-gradient-to-br
-                    from-blue-500/20
-                    to-purple-500/10
+                    bg-blue-500/10
 
                     border
                     border-blue-500/20
@@ -733,25 +701,26 @@ export default function Hero() {
                     items-center
                     justify-center
 
-                    mb-5
+                    mb-6
                   "
                 >
-                  <Target className="w-7 h-7 text-blue-400" />
+                  <Target className="w-8 h-8 text-blue-400" />
                 </div>
 
-                <h4 className="text-white font-bold text-[20px]">
-                  Strategic Impact
+                <h4 className="text-white font-bold text-[24px] leading-tight">
+                  Growth
+                  <br />
+                  Impact
                 </h4>
 
-                <p className="text-gray-400 mt-3 leading-relaxed text-[16px]">
-                  Designs that drive engagement and deliver results.
+                <p className="text-gray-400 mt-4 leading-relaxed text-[16px]">
+                  Every design is optimized to increase
+                  engagement, recognition and conversions.
                 </p>
               </div>
 
             </div>
-
           </div>
-
         </motion.div>
 
       </div>
