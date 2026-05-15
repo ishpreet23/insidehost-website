@@ -58,21 +58,64 @@ export default function PortfolioUpload() {
         }
       );
 
-      const data = await res.json();
+      if (!res.ok) {
 
-      setPortfolio(data);
+        throw new Error(
+          "Failed to fetch portfolio"
+        );
+      }
+
+      const data =
+        await res.json();
+
+      console.log(
+        "FRONTEND PORTFOLIO:",
+        data
+      );
+
+      if (
+        Array.isArray(data)
+      ) {
+
+        setPortfolio(data);
+
+      } else if (
+        data.portfolio &&
+        Array.isArray(
+          data.portfolio
+        )
+      ) {
+
+        setPortfolio(
+          data.portfolio
+        );
+
+      } else {
+
+        console.log(
+          "Portfolio is not array"
+        );
+
+        setPortfolio([]);
+      }
 
     } catch (error) {
 
       console.log(error);
+
+      setPortfolio([]);
     }
   };
+
+  /* IMPORTANT */
 
   useEffect(() => {
 
     fetchPortfolio();
 
   }, []);
+
+  console.log(portfolio);
 
   /* UPLOAD */
 
@@ -322,8 +365,6 @@ export default function PortfolioUpload() {
             className="space-y-7"
           >
 
-            {/* TITLE */}
-
             <input
               type="text"
               placeholder="Project Title"
@@ -346,8 +387,6 @@ export default function PortfolioUpload() {
                 focus:border-purple-500
               "
             />
-
-            {/* CATEGORY */}
 
             <select
               value={category}
@@ -408,8 +447,6 @@ export default function PortfolioUpload() {
 
             </select>
 
-            {/* DESCRIPTION */}
-
             <textarea
               placeholder="Project Description"
               value={description}
@@ -432,8 +469,6 @@ export default function PortfolioUpload() {
                 focus:border-purple-500
               "
             />
-
-            {/* FILE */}
 
             <label
               className="
@@ -526,8 +561,6 @@ export default function PortfolioUpload() {
 
             </label>
 
-            {/* BUTTON */}
-
             <button
               type="submit"
               disabled={loading}
@@ -590,6 +623,14 @@ export default function PortfolioUpload() {
           "
         >
 
+          {portfolio.length === 0 && (
+
+            <div className="text-white text-xl">
+              No Portfolio Found
+            </div>
+
+          )}
+
           {portfolio.map((item) => (
 
             <motion.div
@@ -608,11 +649,9 @@ export default function PortfolioUpload() {
               "
             >
 
-              {/* MEDIA */}
-
               <div className="relative">
 
-                {item.type ===
+                {item.type?.toLowerCase() ===
                 "image" ? (
 
                   <img
@@ -644,8 +683,6 @@ export default function PortfolioUpload() {
 
                 )}
 
-                {/* TYPE */}
-
                 <div
                   className="
                     absolute
@@ -665,7 +702,7 @@ export default function PortfolioUpload() {
                   "
                 >
 
-                  {item.type ===
+                  {item.type?.toLowerCase() ===
                   "image" ? (
                     <FiImage />
                   ) : (
@@ -677,8 +714,6 @@ export default function PortfolioUpload() {
                 </div>
 
               </div>
-
-              {/* CONTENT */}
 
               <div className="p-6">
 
@@ -706,8 +741,6 @@ export default function PortfolioUpload() {
                 >
                   {item.description}
                 </p>
-
-                {/* DELETE */}
 
                 <button
                   onClick={() =>

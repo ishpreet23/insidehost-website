@@ -51,11 +51,19 @@ export default function FeedbackPage() {
         const data =
           await res.json();
 
-        setFeedback(data);
+        /* FIX */
+
+        setFeedback(
+          Array.isArray(data)
+            ? data
+            : []
+        );
 
       } catch (error) {
 
         console.log(error);
+
+        setFeedback([]);
 
       } finally {
 

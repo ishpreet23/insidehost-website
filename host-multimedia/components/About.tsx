@@ -123,7 +123,7 @@ export default function About() {
             <div className="overflow-hidden rounded-[30px]">
 
               <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                src="\asset.jpg.jpeg"
                 alt="Creative Studio"
                 className="w-full h-[320px] object-cover hover:scale-110 transition duration-700"
               />

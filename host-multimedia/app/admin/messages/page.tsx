@@ -4,17 +4,35 @@ import connectDB from "@/lib/mongodb";
 import Message from "@/models/Message";
 
 export default async function MessagesPage() {
-  await connectDB();
 
-  const messages = await Message.find({})
-    .sort({ createdAt: -1 })
-    .lean();
+  let messages: any[] = [];
+
+  try {
+
+    await connectDB();
+
+    const data = await Message.find({})
+      .sort({ createdAt: -1 })
+      .lean();
+
+    messages = Array.isArray(data)
+      ? data
+      : [];
+
+  } catch (error) {
+
+    console.log(error);
+
+    messages = [];
+  }
 
   return (
     <div>
+
       {/* TOP */}
 
       <div className="mb-10">
+
         <h1 className="text-4xl font-black text-white">
           Contact Messages
         </h1>
@@ -22,6 +40,7 @@ export default async function MessagesPage() {
         <p className="text-gray-400 mt-3">
           All website contact form submissions.
         </p>
+
       </div>
 
       {/* TABLE */}
@@ -36,10 +55,15 @@ export default async function MessagesPage() {
           overflow-hidden
         "
       >
+
         <div className="overflow-x-auto">
+
           <table className="w-full text-left">
+
             <thead className="border-b border-white/10 bg-white/[0.03]">
+
               <tr>
+
                 <th className="p-6 text-sm font-semibold text-gray-300">
                   Name
                 </th>
@@ -51,14 +75,19 @@ export default async function MessagesPage() {
                 <th className="p-6 text-sm font-semibold text-gray-300">
                   Message
                 </th>
+
               </tr>
+
             </thead>
 
             <tbody>
+
               {messages.length > 0 ? (
-                messages.map((msg: any) => (
+
+                messages.map((msg: any, index: number) => (
+
                   <tr
-                    key={msg._id?.toString()}
+                    key={msg._id?.toString() || index}
                     className="
                       border-b
                       border-white/5
@@ -66,33 +95,46 @@ export default async function MessagesPage() {
                       transition
                     "
                   >
+
                     <td className="p-6 text-white font-medium">
-                      {msg.name}
+                      {msg.name || "No Name"}
                     </td>
 
                     <td className="p-6 text-gray-300">
-                      {msg.email}
+                      {msg.email || "No Email"}
                     </td>
 
                     <td className="p-6 text-gray-400 max-w-[500px]">
-                      {msg.message}
+                      {msg.message || "No Message"}
                     </td>
+
                   </tr>
+
                 ))
+
               ) : (
+
                 <tr>
+
                   <td
                     colSpan={3}
                     className="p-10 text-center text-gray-400"
                   >
                     No messages found.
                   </td>
+
                 </tr>
+
               )}
+
             </tbody>
+
           </table>
+
         </div>
+
       </div>
+
     </div>
   );
 }

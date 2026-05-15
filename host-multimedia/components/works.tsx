@@ -41,11 +41,20 @@ export default function WorksPage() {
 
       const data = await res.json();
 
-      setPortfolio(data);
+      if (Array.isArray(data)) {
+
+        setPortfolio(data);
+
+      } else {
+
+        setPortfolio([]);
+      }
 
     } catch (error) {
 
       console.log(error);
+
+      setPortfolio([]);
 
     } finally {
 
@@ -84,6 +93,7 @@ export default function WorksPage() {
       ) => {
 
         if (!acc[item.category]) {
+
           acc[item.category] = [];
         }
 
@@ -96,6 +106,7 @@ export default function WorksPage() {
     );
 
   return (
+
     <section
       className="
         relative
@@ -279,20 +290,6 @@ export default function WorksPage() {
 
               <motion.div
                 key={sectionIndex}
-                initial={{
-                  opacity: 0,
-                  y: 60,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                transition={{
-                  duration: 0.7,
-                }}
-                viewport={{
-                  once: true,
-                }}
               >
 
                 {/* CATEGORY */}
@@ -328,18 +325,6 @@ export default function WorksPage() {
 
                   </div>
 
-                  <div
-                    className="
-                      w-56
-                      h-[4px]
-                      rounded-full
-                      bg-gradient-to-r
-                      from-purple-500
-                      via-pink-500
-                      to-blue-500
-                    "
-                  ></div>
-
                 </div>
 
                 {/* GRID */}
@@ -349,208 +334,174 @@ export default function WorksPage() {
                     grid
                     sm:grid-cols-2
                     xl:grid-cols-3
-                    2xl:grid-cols-4
                     gap-10
                   "
                 >
 
-                  {items.map((item) => (
+                  {items.map(
+                    (
+                      item,
+                      index
+                    ) => (
 
                     <motion.div
                       key={item._id}
-                      whileHover={{
-                        y: -12,
-                        scale: 1.02,
+                      initial={{
+                        opacity: 0,
+                        y: 50,
+                      }}
+                      whileInView={{
+                        opacity: 1,
+                        y: 0,
                       }}
                       transition={{
-                        duration: 0.4,
+                        duration: 0.5,
+                        delay:
+                          index * 0.1,
                       }}
-                      className="group relative"
+                      viewport={{
+                        once: true,
+                      }}
+                      whileHover={{
+                        y: -10,
+                      }}
+                      className="
+                        group
+                        relative
+                        overflow-hidden
+                        rounded-[32px]
+                        border
+                        border-white/10
+                        bg-white/[0.05]
+                        backdrop-blur-2xl
+                      "
                     >
 
-                      {/* GLOW */}
+                      {/* MEDIA */}
 
-                      <div
-                        className="
-                          absolute
-                          -inset-[2px]
-                          rounded-[34px]
-                          bg-gradient-to-r
-                          from-purple-500/40
-                          via-pink-500/30
-                          to-blue-500/40
-                          opacity-0
-                          blur-2xl
-                          group-hover:opacity-100
-                          transition
-                          duration-700
-                        "
-                      ></div>
+                      <div className="relative overflow-hidden">
 
-                      {/* CARD */}
+                        {item.type?.toLowerCase() ===
+                        "image" ? (
 
-                      <div
-                        className="
-                          relative
-                          overflow-hidden
-                          rounded-[32px]
-                          border
-                          border-white/10
-                          bg-white/[0.05]
-                          backdrop-blur-2xl
-                        "
-                      >
+                          <img
+                            src={
+                              item.mediaUrl
+                            }
+                            alt={item.title}
+                            className="
+                              w-full
+                              h-[340px]
+                              object-cover
+                              group-hover:scale-110
+                              transition-all
+                              duration-700
+                            "
+                          />
 
-                        {/* MEDIA */}
+                        ) : (
 
-                        <div className="relative overflow-hidden">
+                          <video
+                            src={
+                              item.mediaUrl
+                            }
+                            controls
+                            className="
+                              w-full
+                              h-[340px]
+                              object-cover
+                              bg-black
+                            "
+                          />
 
-                          {item.type === "image" ? (
+                        )}
 
-                            <img
-                              src={item.mediaUrl}
-                              alt={item.title}
-                              onError={(e) => {
+                        {/* OVERLAY */}
 
-                                (
-                                  e.currentTarget as HTMLImageElement
-                                ).src =
-                                  "https://placehold.co/600x600/111827/ffffff?text=InsideHost";
+                        <div
+                          className="
+                            absolute
+                            inset-0
+                            bg-gradient-to-t
+                            from-black/80
+                            via-black/20
+                            to-transparent
+                          "
+                        ></div>
 
-                              }}
-                              className="
-                                w-full
-                                h-[360px]
-                                object-cover
-                                transition-all
-                                duration-700
-                                group-hover:scale-110
-                              "
-                            />
+                        {/* TYPE */}
 
+                        <div
+                          className="
+                            absolute
+                            top-5
+                            left-5
+                            px-4
+                            py-2
+                            rounded-full
+                            bg-black/40
+                            backdrop-blur-xl
+                            border
+                            border-white/10
+                            flex
+                            items-center
+                            gap-2
+                            text-sm
+                            text-white
+                          "
+                        >
+
+                          {item.type?.toLowerCase() ===
+                          "image" ? (
+                            <FiImage />
                           ) : (
-
-                            <video
-                              src={item.mediaUrl}
-                              controls
-                              className="
-                                w-full
-                                h-[360px]
-                                object-cover
-                                bg-black
-                              "
-                            />
-
+                            <FiPlay />
                           )}
 
-                          {/* OVERLAY */}
-
-                          <div
-                            className="
-                              absolute
-                              inset-0
-                              bg-gradient-to-t
-                              from-black/80
-                              via-black/10
-                              to-transparent
-                            "
-                          ></div>
-
-                          {/* TYPE */}
-
-                          <div
-                            className="
-                              absolute
-                              top-5
-                              left-5
-                              px-4
-                              py-2
-                              rounded-full
-                              bg-black/40
-                              backdrop-blur-xl
-                              border
-                              border-white/10
-                              flex
-                              items-center
-                              gap-2
-                              text-sm
-                              z-20
-                            "
-                          >
-
-                            {item.type === "image"
-                              ? <FiImage />
-                              : <FiPlay />}
-
-                            {item.type}
-
-                          </div>
-
-                        </div>
-
-                        {/* CONTENT */}
-
-                        <div className="p-7">
-
-                          <h3
-                            className="
-                              text-2xl
-                              font-black
-                              mb-3
-                            "
-                          >
-                            {item.title}
-                          </h3>
-
-                          {/* DESCRIPTION */}
-
-                          <p
-                            className="
-                              text-gray-400
-                              text-sm
-                              leading-relaxed
-                              min-h-[80px]
-                            "
-                          >
-                            {item.description}
-                          </p>
-
-                          <div
-                            className="
-                              mt-7
-                              flex
-                              items-center
-                              gap-3
-                            "
-                          >
-
-                            <span
-                              className="
-                                text-sm
-                                text-purple-300
-                                font-semibold
-                              "
-                            >
-                              INSIDEHOST PREMIUM
-                            </span>
-
-                            <div
-                              className="
-                                flex-1
-                                h-[1px]
-                                bg-gradient-to-r
-                                from-purple-400/50
-                                to-transparent
-                              "
-                            ></div>
-
-                          </div>
+                          {item.type}
 
                         </div>
 
                       </div>
 
+                      {/* CONTENT */}
+
+                      <div className="p-7">
+
+                        <h3
+                          className="
+                            text-2xl
+                            font-bold
+                            mb-3
+                          "
+                        >
+                          {item.title}
+                        </h3>
+
+                        <p
+                          className="
+                            text-sm
+                            text-purple-300
+                            mb-3
+                          "
+                        >
+                          {item.category}
+                        </p>
+
+                        <p
+                          className="
+                            text-gray-400
+                            leading-relaxed
+                            text-sm
+                          "
+                        >
+                          {item.description}
+                        </p>
+
+                      </div>
+
                     </motion.div>
+
                   ))}
 
                 </div>

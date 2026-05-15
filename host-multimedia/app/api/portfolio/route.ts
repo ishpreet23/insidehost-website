@@ -10,15 +10,34 @@ const MONGO_URI =
 
 const connectDB = async () => {
 
-  if (
-    mongoose.connection.readyState >= 1
-  ) {
-    return;
-  }
+  try {
 
-  await mongoose.connect(
-    MONGO_URI
-  );
+    if (
+      mongoose.connection.readyState >= 1
+    ) {
+      return;
+    }
+
+    await mongoose.connect(
+      MONGO_URI,
+      {
+        dbName: "insidehost",
+      }
+    );
+
+    console.log(
+      "MongoDB Connected"
+    );
+
+  } catch (error) {
+
+    console.log(
+      "MongoDB Error:",
+      error
+    );
+
+    throw error;
+  }
 };
 
 /* =========================
@@ -29,13 +48,19 @@ export async function GET() {
 
   try {
 
+    console.log("CONNECTING DB...");
+
     await connectDB();
+
+    console.log("DB CONNECTED");
 
     const portfolio =
       await Portfolio.find()
         .sort({
           createdAt: -1,
         });
+
+    console.log("PORTFOLIO DATA:", portfolio);
 
     return NextResponse.json(
       portfolio,
@@ -46,7 +71,7 @@ export async function GET() {
 
   } catch (error) {
 
-    console.log(error);
+    console.log("GET PORTFOLIO ERROR:", error);
 
     return NextResponse.json(
       {
@@ -59,7 +84,6 @@ export async function GET() {
     );
   }
 }
-
 /* =========================
    CREATE PORTFOLIO
 ========================= */
@@ -74,6 +98,24 @@ export async function POST(
 
     const body =
       await req.json();
+
+    if (
+      !body.title ||
+      !body.category ||
+      !body.mediaUrl ||
+      !body.type
+    ) {
+
+      return NextResponse.json(
+        {
+          error:
+            "Missing required fields",
+        },
+        {
+          status: 400,
+        }
+      );
+    }
 
     const newPortfolio =
       await Portfolio.create({

@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import emailjs from "@emailjs/browser";
 
 import {
-  FaWhatsapp,
+  FaFacebookF,
   FaInstagram,
   FaLinkedin,
   FaTelegram,
@@ -411,9 +411,12 @@ export default function Contact() {
 
                 <div className="flex flex-wrap gap-5">
 
+                  {/* INSTAGRAM */}
+
                   <a
-                    href="https://www.instagram.com/insidehost.in/"
+                    href="https://www.instagram.com/insidehost.in?igsh=ZmNvbW5tMzRybGhx"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <motion.div
                       whileHover={{ scale: 1.12, y: -5 }}
@@ -435,62 +438,86 @@ export default function Contact() {
                     </motion.div>
                   </a>
 
-                  <motion.div
-                    whileHover={{ scale: 1.12, y: -5 }}
-                    className="
-                      w-16
-                      h-16
-                      rounded-2xl
-                      flex
-                      items-center
-                      justify-center
-                      text-2xl
-                      bg-gradient-to-br
-                      from-blue-500
-                      to-cyan-500
-                      shadow-lg
-                    "
-                  >
-                    <FaLinkedin />
-                  </motion.div>
+                  {/* LINKEDIN */}
 
-                  <motion.div
-                    whileHover={{ scale: 1.12, y: -5 }}
-                    className="
-                      w-16
-                      h-16
-                      rounded-2xl
-                      flex
-                      items-center
-                      justify-center
-                      text-2xl
-                      bg-gradient-to-br
-                      from-green-500
-                      to-emerald-500
-                      shadow-lg
-                    "
+                  <a
+                    href="https://www.linkedin.com/company/insidehost-in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    <FaWhatsapp />
-                  </motion.div>
+                    <motion.div
+                      whileHover={{ scale: 1.12, y: -5 }}
+                      className="
+                        w-16
+                        h-16
+                        rounded-2xl
+                        flex
+                        items-center
+                        justify-center
+                        text-2xl
+                        bg-gradient-to-br
+                        from-blue-500
+                        to-cyan-500
+                        shadow-lg
+                      "
+                    >
+                      <FaLinkedin />
+                    </motion.div>
+                  </a>
 
-                  <motion.div
-                    whileHover={{ scale: 1.12, y: -5 }}
-                    className="
-                      w-16
-                      h-16
-                      rounded-2xl
-                      flex
-                      items-center
-                      justify-center
-                      text-2xl
-                      bg-gradient-to-br
-                      from-sky-500
-                      to-blue-500
-                      shadow-lg
-                    "
+                  {/* FACEBOOK */}
+
+                  <a
+                    href="https://www.facebook.com/share/1DC66h7Gbt/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
+                    <motion.div
+                      whileHover={{ scale: 1.12, y: -5 }}
+                      className="
+                        w-16
+                        h-16
+                        rounded-2xl
+                        flex
+                        items-center
+                        justify-center
+                        text-2xl
+                        bg-gradient-to-br
+                        from-blue-600
+                        to-indigo-600
+                        shadow-lg
+                      "
+                    >
+                      <FaFacebookF />
+                    </motion.div>
+                  </a>
+
+                  {/* TELEGRAM */}
+
+                  <a
+                    href="https://t.me/insidehostmarketing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <motion.div
+                      whileHover={{ scale: 1.12, y: -5 }}
+                      className="
+                        w-16
+                        h-16
+                        rounded-2xl
+                        flex
+                        items-center
+                        justify-center
+                        text-2xl
+                        bg-gradient-to-br
+                        from-sky-500
+                        to-blue-500
+                        shadow-lg
+                      "
+                    >
                       <FaTelegram />
-                  </motion.div>
+                    </motion.div>
+                  </a>
 
                 </div>
 
