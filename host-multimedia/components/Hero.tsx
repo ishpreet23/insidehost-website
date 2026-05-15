@@ -1,6 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import {
+  Briefcase,
+  Users,
+  Star,
+  Gem,
+  Zap,
+  Target,
+} from "lucide-react";
 
 /* ================= HERO ================= */
 
@@ -19,22 +27,19 @@ export default function Hero() {
         px-5
         sm:px-8
         md:px-12
-        xl:px-20
-        2xl:px-32
-        bg-gradient-to-br
-        from-[#070710]
-        via-[#0f0f1a]
-        to-[#05050a]
+        xl:px-16
+        2xl:px-24
+        bg-[#050510]
         text-white
       "
     >
-      {/* ================= BACKGROUND GLOWS ================= */}
+      {/* ================= BACKGROUND ================= */}
 
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-purple-600/20 blur-[180px] rounded-full"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(168,85,247,0.18),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(59,130,246,0.15),transparent_30%)]"></div>
 
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] md:w-[700px] md:h-[700px] bg-blue-600/20 blur-[180px] rounded-full"></div>
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-600/20 blur-[180px] rounded-full"></div>
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[600px] md:h-[600px] bg-pink-500/10 blur-[180px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/20 blur-[180px] rounded-full"></div>
 
       {/* ================= MAIN GRID ================= */}
 
@@ -44,9 +49,8 @@ export default function Hero() {
           z-10
           grid
           lg:grid-cols-2
-          gap-6
-          xl:gap-10
-          2xl:gap-14
+          gap-10
+          xl:gap-16
           items-center
           w-full
         "
@@ -58,20 +62,39 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="
-            max-w-[720px]
-            2xl:max-w-[900px]
+            max-w-[700px]
           "
         >
           {/* TAG */}
 
-          <div className="inline-flex items-center gap-3 px-4 py-2 sm:px-5 sm:py-3 rounded-full border border-white/10 bg-white/5 backdrop-blur-xl mb-7 shadow-[0_0_40px_rgba(168,85,247,0.25)]">
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-3
 
-            <div className="w-3 h-3 rounded-full bg-purple-400 animate-pulse shadow-[0_0_20px_rgba(168,85,247,0.9)]"></div>
+              px-5
+              py-3
 
-            <span className="text-[10px] sm:text-sm tracking-[2px] sm:tracking-[3px] text-white/90">
+              rounded-full
+
+              border
+              border-white/10
+
+              bg-white/[0.04]
+
+              backdrop-blur-xl
+
+              mb-7
+
+              shadow-[0_0_40px_rgba(168,85,247,0.15)]
+            "
+          >
+            <div className="w-2.5 h-2.5 rounded-full bg-purple-400"></div>
+
+            <span className="text-[11px] tracking-[4px] text-white/90">
               WELCOME TO INSIDEHOST
             </span>
-
           </div>
 
           {/* HEADING */}
@@ -81,15 +104,11 @@ export default function Hero() {
               font-black
               leading-[0.9]
 
-              text-[42px]
-              sm:text-[52px]
-              md:text-[60px]
-
-              lg:text-[64px]
-
-              xl:text-[74px]
-
-              2xl:text-[96px]
+              text-[58px]
+              sm:text-[72px]
+              md:text-[82px]
+              xl:text-[92px]
+              2xl:text-[108px]
             "
           >
             We Design <br />
@@ -107,30 +126,26 @@ export default function Hero() {
 
           <p
             className="
-              mt-7
+              mt-8
+
               text-gray-400
-              leading-relaxed
-              max-w-2xl
 
-              text-[16px]
-              sm:text-[17px]
-              md:text-[18px]
+              leading-[1.8]
 
-              lg:text-[18px]
+              max-w-[720px]
 
+              text-[17px]
               xl:text-[20px]
-
-              2xl:text-[24px]
             "
           >
-            We craft premium branding experiences through
-            creative design, cinematic visuals, content strategy
-            and modern digital storytelling.
+            We craft premium branding experiences through creative
+            design, cinematic visuals, content strategy and modern
+            digital storytelling.
           </p>
 
           {/* BUTTONS */}
 
-          <div className="mt-9 flex gap-4 flex-wrap">
+          <div className="mt-10 flex gap-5 flex-wrap">
 
             <a href="#portfolio">
 
@@ -139,12 +154,12 @@ export default function Hero() {
                   group
                   relative
                   overflow-hidden
-                  px-7
-                  py-4
-                  sm:px-9
-                  sm:py-5
+
+                  px-10
+                  py-5
 
                   rounded-2xl
+
                   bg-gradient-to-r
                   from-purple-500
                   via-pink-500
@@ -153,20 +168,16 @@ export default function Hero() {
                   text-white
                   font-semibold
 
-                  text-[15px]
-                  sm:text-[16px]
+                  text-lg
 
-                  xl:text-[18px]
+                  shadow-[0_20px_80px_rgba(99,102,241,0.4)]
 
-                  2xl:text-[22px]
-
-                  shadow-[0_20px_60px_rgba(99,102,241,0.35)]
                   hover:scale-105
-                  transition
+
+                  transition-all
                   duration-300
                 "
               >
-
                 <span className="relative z-10">
                   View Portfolio →
                 </span>
@@ -181,30 +192,26 @@ export default function Hero() {
 
               <button
                 className="
-                  px-7
-                  py-4
-                  sm:px-9
-                  sm:py-5
+                  px-10
+                  py-5
 
                   rounded-2xl
+
                   border
                   border-white/10
-                  bg-white/5
+
+                  bg-white/[0.04]
+
                   backdrop-blur-xl
-                  hover:bg-white/10
+
+                  hover:bg-white/[0.08]
 
                   text-white
                   font-semibold
 
-                  text-[15px]
-                  sm:text-[16px]
+                  text-lg
 
-                  xl:text-[18px]
-
-                  2xl:text-[22px]
-
-                  hover:scale-105
-                  transition
+                  transition-all
                   duration-300
                 "
               >
@@ -217,41 +224,126 @@ export default function Hero() {
 
           {/* STATS */}
 
-          <div className="flex gap-10 sm:gap-14 mt-14 flex-wrap">
+          <div
+            className="
+              mt-14
 
-            <div>
+              flex
+              flex-wrap
 
-              <h3 className="text-[38px] xl:text-[44px] 2xl:text-[58px] font-bold text-white">
-                120+
-              </h3>
+              gap-8
+              xl:gap-12
+            "
+          >
+            {/* STAT */}
 
-              <p className="text-gray-400 text-sm sm:text-base xl:text-lg 2xl:text-[22px] mt-2">
-                Projects Completed
-              </p>
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-16
+                  h-16
+
+                  rounded-2xl
+
+                  bg-gradient-to-br
+                  from-purple-500/20
+                  to-pink-500/10
+
+                  border
+                  border-purple-500/20
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <Briefcase className="w-7 h-7 text-purple-400" />
+              </div>
+
+              <div>
+                <h3 className="text-5xl font-bold">120+</h3>
+
+                <p className="text-gray-400 mt-1 text-lg">
+                  Projects Completed
+                </p>
+              </div>
 
             </div>
 
-            <div>
+            <div className="w-px h-20 bg-white/10 hidden xl:block"></div>
 
-              <h3 className="text-[38px] xl:text-[44px] 2xl:text-[58px] font-bold text-white">
-                50+
-              </h3>
+            {/* STAT */}
 
-              <p className="text-gray-400 text-sm sm:text-base xl:text-lg 2xl:text-[22px] mt-2">
-                Happy Clients
-              </p>
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-16
+                  h-16
+
+                  rounded-2xl
+
+                  bg-gradient-to-br
+                  from-pink-500/20
+                  to-purple-500/10
+
+                  border
+                  border-pink-500/20
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <Users className="w-7 h-7 text-pink-400" />
+              </div>
+
+              <div>
+                <h3 className="text-5xl font-bold">50+</h3>
+
+                <p className="text-gray-400 mt-1 text-lg">
+                  Happy Clients
+                </p>
+              </div>
 
             </div>
 
-            <div>
+            <div className="w-px h-20 bg-white/10 hidden xl:block"></div>
 
-              <h3 className="text-[38px] xl:text-[44px] 2xl:text-[58px] font-bold text-white">
-                4.8★
-              </h3>
+            {/* STAT */}
 
-              <p className="text-gray-400 text-sm sm:text-base xl:text-lg 2xl:text-[22px] mt-2">
-                Client Rating
-              </p>
+            <div className="flex items-center gap-4">
+
+              <div
+                className="
+                  w-16
+                  h-16
+
+                  rounded-2xl
+
+                  bg-gradient-to-br
+                  from-blue-500/20
+                  to-purple-500/10
+
+                  border
+                  border-blue-500/20
+
+                  flex
+                  items-center
+                  justify-center
+                "
+              >
+                <Star className="w-7 h-7 text-blue-400" />
+              </div>
+
+              <div>
+                <h3 className="text-5xl font-bold">4.8★</h3>
+
+                <p className="text-gray-400 mt-1 text-lg">
+                  Client Rating
+                </p>
+              </div>
 
             </div>
 
@@ -269,72 +361,396 @@ export default function Hero() {
             relative
             hidden
             lg:flex
-            justify-end
-            items-end
+            justify-center
+            items-center
             w-full
-
-            h-[700px]
-
-            xl:h-[850px]
-
-            2xl:h-[1050px]
           "
         >
-          {/* BIG GLOW */}
+          {/* MAIN PREMIUM CARD */}
 
           <div
             className="
-              absolute
-              right-[-40px]
-              bottom-[-20px]
-
-              w-[700px]
-              h-[700px]
-
-              xl:w-[900px]
-              xl:h-[900px]
-
-              2xl:w-[1150px]
-              2xl:h-[1150px]
-
-              bg-gradient-to-r
-              from-purple-500/25
-              via-pink-500/15
-              to-blue-500/25
-
-              blur-[220px]
-              rounded-full
-            "
-          ></div>
-
-          {/* GIRL IMAGE */}
-
-          <img
-            src="/girl-image.png"
-            alt="InsideHost Designer"
-            className="
               relative
-              z-10
 
-              w-[620px]
+              w-full
 
-              xl:w-[820px]
+              max-w-[760px]
 
-              2xl:w-[1050px]
+              rounded-[42px]
 
-              max-w-none
-              h-auto
-              object-contain
+              border
+              border-purple-500/20
 
-              drop-shadow-[0_30px_120px_rgba(168,85,247,0.45)]
+              bg-gradient-to-br
+              from-[#1b1530]/95
+              via-[#161127]/95
+              to-[#0f1020]/95
 
-              select-none
-              pointer-events-none
+              backdrop-blur-3xl
 
-              translate-x-4
-              2xl:translate-x-10
+              overflow-hidden
+
+              p-8
+              xl:p-10
+
+              shadow-[0_0_80px_rgba(168,85,247,0.18)]
             "
-          />
+          >
+            {/* OUTER GLOW */}
+
+            <div
+              className="
+                absolute
+                inset-0
+
+                rounded-[42px]
+
+                border
+                border-white/5
+              "
+            ></div>
+
+            {/* DOTS */}
+
+            <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle,rgba(255,255,255,0.4)_1px,transparent_1px)] bg-[size:22px_22px]"></div>
+
+            {/* BADGE */}
+
+            <div
+              className="
+                relative
+                z-10
+
+                inline-flex
+                items-center
+                gap-2
+
+                px-5
+                py-3
+
+                rounded-full
+
+                border
+                border-purple-500/30
+
+                bg-purple-500/10
+
+                text-white/90
+
+                text-xs
+
+                tracking-[3px]
+
+                backdrop-blur-xl
+              "
+            >
+              ✦ CREATIVE DESIGN STUDIO
+            </div>
+
+            {/* IMAGE SECTION */}
+
+            <div
+              className="
+                relative
+
+                flex
+                justify-center
+                items-center
+
+                pt-6
+              "
+            >
+              {/* CLEAN GLOW BEHIND GIRL */}
+
+              <div
+                className="
+                  absolute
+
+                  w-[320px]
+                  h-[320px]
+
+                  xl:w-[420px]
+                  xl:h-[420px]
+
+                  rounded-full
+
+                  bg-gradient-to-r
+                  from-pink-500/30
+                  via-purple-500/25
+                  to-blue-500/30
+
+                  blur-[90px]
+
+                  opacity-90
+                "
+              ></div>
+
+              {/* RING */}
+
+              <div
+                className="
+                  absolute
+
+                  w-[380px]
+                  h-[380px]
+
+                  xl:w-[480px]
+                  xl:h-[480px]
+
+                  rounded-full
+
+                  border
+                  border-purple-400/20
+                "
+              ></div>
+
+              {/* IMAGE */}
+
+              <img
+                src="/girl-image.png"
+                alt="InsideHost Designer"
+                className="
+                  relative
+                  z-10
+
+                  w-full
+
+                  max-w-[300px]
+                  xl:max-w-[400px]
+
+                  h-auto
+                  object-contain
+
+                  drop-shadow-[0_25px_60px_rgba(0,0,0,0.35)]
+
+                  select-none
+                  pointer-events-none
+                "
+              />
+            </div>
+
+            {/* TEXT */}
+
+            <div
+              className="
+                relative
+                z-10
+
+                text-center
+
+                mt-2
+              "
+            >
+              <h3
+                className="
+                  font-black
+
+                  text-[42px]
+                  xl:text-[54px]
+
+                  leading-tight
+
+                  bg-gradient-to-r
+                  from-pink-400
+                  via-purple-300
+                  to-blue-400
+
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                Why We Design
+              </h3>
+
+              <p
+                className="
+                  mt-5
+
+                  text-gray-300
+
+                  leading-[1.7]
+
+                  max-w-[620px]
+
+                  mx-auto
+
+                  text-[18px]
+                  xl:text-[22px]
+                "
+              >
+                Great design is more than aesthetics —
+                it’s about creating experiences that connect,
+                communicate and convert.
+              </p>
+            </div>
+
+            {/* DIVIDER */}
+
+            <div className="relative z-10 h-px w-full bg-white/10 my-10"></div>
+
+            {/* FEATURES */}
+
+            <div
+              className="
+                relative
+                z-10
+
+                grid
+                grid-cols-3
+
+                gap-5
+              "
+            >
+              {/* CARD */}
+
+              <div
+                className="
+                  rounded-3xl
+
+                  border
+                  border-white/10
+
+                  bg-white/[0.03]
+
+                  p-5
+
+                  backdrop-blur-xl
+                "
+              >
+                <div
+                  className="
+                    w-14
+                    h-14
+
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-pink-500/20
+                    to-purple-500/10
+
+                    border
+                    border-pink-500/20
+
+                    flex
+                    items-center
+                    justify-center
+
+                    mb-5
+                  "
+                >
+                  <Gem className="w-7 h-7 text-pink-400" />
+                </div>
+
+                <h4 className="text-white font-bold text-[20px]">
+                  Premium Quality
+                </h4>
+
+                <p className="text-gray-400 mt-3 leading-relaxed text-[16px]">
+                  High-end visuals crafted with precision and creativity.
+                </p>
+              </div>
+
+              {/* CARD */}
+
+              <div
+                className="
+                  rounded-3xl
+
+                  border
+                  border-white/10
+
+                  bg-white/[0.03]
+
+                  p-5
+
+                  backdrop-blur-xl
+                "
+              >
+                <div
+                  className="
+                    w-14
+                    h-14
+
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-purple-500/20
+                    to-blue-500/10
+
+                    border
+                    border-purple-500/20
+
+                    flex
+                    items-center
+                    justify-center
+
+                    mb-5
+                  "
+                >
+                  <Zap className="w-7 h-7 text-purple-400" />
+                </div>
+
+                <h4 className="text-white font-bold text-[20px]">
+                  Fast Delivery
+                </h4>
+
+                <p className="text-gray-400 mt-3 leading-relaxed text-[16px]">
+                  Quick turnaround without compromising on quality.
+                </p>
+              </div>
+
+              {/* CARD */}
+
+              <div
+                className="
+                  rounded-3xl
+
+                  border
+                  border-white/10
+
+                  bg-white/[0.03]
+
+                  p-5
+
+                  backdrop-blur-xl
+                "
+              >
+                <div
+                  className="
+                    w-14
+                    h-14
+
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-blue-500/20
+                    to-purple-500/10
+
+                    border
+                    border-blue-500/20
+
+                    flex
+                    items-center
+                    justify-center
+
+                    mb-5
+                  "
+                >
+                  <Target className="w-7 h-7 text-blue-400" />
+                </div>
+
+                <h4 className="text-white font-bold text-[20px]">
+                  Strategic Impact
+                </h4>
+
+                <p className="text-gray-400 mt-3 leading-relaxed text-[16px]">
+                  Designs that drive engagement and deliver results.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
 
         </motion.div>
 
