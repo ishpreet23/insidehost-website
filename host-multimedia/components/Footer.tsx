@@ -22,11 +22,13 @@ import {
 
 export default function Footer() {
 
-  const whatsappNumber = "919999999999";
+  // ================= WHATSAPP =================
 
-  const whatsappMessage = encodeURIComponent(
-    "Hello InsideHost 🚀 I want premium branding/design services."
-  );
+  const whatsappNumber = "916284845078";
+
+ const whatsappMessage = encodeURIComponent(
+  "Hi, \nI’m looking for Digital Marketing services for my business \n\nI need help with:\n• Social Media Marketing \n• SEO \n• Google/Facebook Ads \n• Lead Generation \n• Online Branding \n\nI came across InsideHost and would like to know more about your services and pricing. Please share the details "
+);
 
   return (
 
@@ -334,8 +336,6 @@ export default function Footer() {
                   `}
                 >
 
-                  {/* ICON */}
-
                   <div
                     className="
                       w-11
@@ -354,8 +354,6 @@ export default function Footer() {
                   >
                     {item.icon}
                   </div>
-
-                  {/* TEXT */}
 
                   <div className="flex-1 min-w-0">
 
@@ -383,7 +381,7 @@ export default function Footer() {
 
         </div>
 
-        {/* PREMIUM CHAT CARD */}
+        {/* WHATSAPP CARD */}
 
         <motion.div
           initial={{
@@ -438,8 +436,6 @@ export default function Footer() {
               lg:p-10
             "
           >
-
-            {/* TOP LIGHT */}
 
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
 
@@ -629,31 +625,18 @@ export default function Footer() {
           "
         >
 
-       <p
-  className="
-    text-gray-500
-    text-sm
-    text-center
-    md:text-left
-  "
->
-  © 2026 InsideHost Multimedia & Creative Marketing Company.{" "}
+          <p
+            className="
+              text-gray-500
+              text-sm
+              text-center
+              md:text-left
+            "
+          >
+            © 2026 InsideHost Multimedia & Creative Marketing Company.
+            All rights reserved.
+          </p>
 
-  <a
-    href="/insidehost-secret-admin-access-2026"
-    className="
-      text-gray-500
-      no-underline
-      cursor-default
-      transition-all
-      duration-300
-      hover:text-gray-500
-    "
-  >
-    All rights reserved.
-  </a>
-
-</p>
           {/* SCROLL BUTTON */}
 
           <motion.button

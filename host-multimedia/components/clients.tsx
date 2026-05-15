@@ -103,11 +103,42 @@ export default function Clients() {
         const data =
           await res.json();
 
-        setClients(data);
+        /* FIXED ARRAY ISSUE */
+
+        if (Array.isArray(data)) {
+
+          setClients(data);
+
+        } else if (
+          Array.isArray(
+            data.feedbacks
+          )
+        ) {
+
+          setClients(
+            data.feedbacks
+          );
+
+        } else if (
+          Array.isArray(
+            data.data
+          )
+        ) {
+
+          setClients(
+            data.data
+          );
+
+        } else {
+
+          setClients([]);
+        }
 
       } catch (error) {
 
         console.log(error);
+
+        setClients([]);
       }
     };
 
@@ -367,7 +398,10 @@ export default function Clients() {
 
           <div className="grid md:grid-cols-3 gap-6">
 
-            {clients
+            {(Array.isArray(clients)
+              ? clients
+              : []
+            )
               .slice(
                 index,
                 index +
