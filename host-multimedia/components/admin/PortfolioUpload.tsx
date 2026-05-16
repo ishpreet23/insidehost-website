@@ -413,36 +413,36 @@ export default function PortfolioUpload() {
                 Select Category
               </option>
 
-              <option value="Brand Logo">
-                Brand Logo
+              <option value="Menu design">
+                Menu design
               </option>
 
-              <option value="Creative Poster">
-                Creative Poster
+              <option value="Website Development">
+                Website Development
               </option>
 
-              <option value="YouTube Thumbnail">
-                YouTube Thumbnail
-              </option>
-
-              <option value="Product Packaging">
-                Product Packaging
-              </option>
-
-              <option value="Modern Logo">
-                Modern Logo
-              </option>
-
-              <option value="Event Poster">
-                Event Poster
-              </option>
-
-              <option value="Video Shoot">
-                Video Shoot
+              <option value="Brand logo">
+                Brand logo
               </option>
 
               <option value="Product Shoot">
                 Product Shoot
+              </option>
+
+              <option value="Merchandise Printing">
+                Merchandise Printing
+              </option>
+
+              <option value="Youtube Content Creation">
+                Youtube Content Creation
+              </option>
+
+              <option value="Creative Posters">
+                Creative Posters
+              </option>
+
+              <option value="Social Media Creatives">
+                Social Media Creatives
               </option>
 
             </select>
