@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaBars, FaTimes } from "react-icons/fa";
@@ -48,7 +49,7 @@ export default function Navbar() {
     >
       {/* ================= NAVBAR ================= */}
 
-      <div className="relative flex items-center justify-between px-4 sm:px-6 md:px-10 xl:px-16 py-4 md:py-5 overflow-hidden">
+      <div className="relative flex items-center justify-between px-4 sm:px-6 md:px-10 xl:px-16 h-[80px] overflow-hidden">
 
         {/* GLOW */}
 
@@ -60,39 +61,32 @@ export default function Navbar() {
 
         </div>
 
-        {/* LOGO */}
+       {/* LOGO */}
 
-        <button
-          onClick={() => scrollToSection("#home")}
-          className="relative z-10"
-        >
-          <h1
-            className="
-              text-[30px]
-              sm:text-[38px]
-              md:text-[50px]
-              xl:text-[58px]
-              font-[200]
-              tracking-[-2px]
-              md:tracking-[-4px]
-              lowercase
-              text-white
-              leading-[0.9]
-              select-none
-            "
-            style={{
-              fontFamily: "'Josefin Sans', sans-serif",
-            }}
-          >
-            insidehost
-          </h1>
-        </button>
+<button
+  onClick={() => scrollToSection("#home")}
+  className="relative z-10 flex items-center shrink-0 h-[80px]"
+>
+  <Image
+    src="/insidehost.logo.png"
+    alt="InsideHost Logo"
+    width={140}
+    height={35}
+    priority
+    className="
+      w-[90px]
+      sm:w-[110px]
+      md:w-[125px]
+      xl:w-[140px]
+      h-auto
+      object-contain
+    "
+  />
+</button>
 
         {/* DESKTOP MENU */}
 
         <div className="hidden lg:flex items-center gap-8 xl:gap-14">
-
-          {/* HOME */}
 
           <button
             onClick={() => scrollToSection("#home")}
@@ -103,8 +97,6 @@ export default function Navbar() {
             <span className="absolute left-0 -bottom-2 h-[2px] w-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
           </button>
 
-          {/* ABOUT */}
-
           <button
             onClick={() => scrollToSection("#about")}
             className="relative text-gray-300 hover:text-white text-[16px] xl:text-[17px] font-medium tracking-wide transition-all duration-300 group"
@@ -114,8 +106,6 @@ export default function Navbar() {
             <span className="absolute left-0 -bottom-2 h-[2px] w-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
           </button>
 
-          {/* SERVICES */}
-
           <button
             onClick={() => scrollToSection("#services")}
             className="relative text-gray-300 hover:text-white text-[16px] xl:text-[17px] font-medium tracking-wide transition-all duration-300 group"
@@ -124,8 +114,6 @@ export default function Navbar() {
 
             <span className="absolute left-0 -bottom-2 h-[2px] w-0 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
           </button>
-
-          {/* PORTFOLIO */}
 
           <button
             onClick={() => scrollToSection("#portfolio")}
