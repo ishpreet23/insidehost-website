@@ -1,25 +1,9 @@
+export const dynamic = "force-dynamic";
+
 import { NextResponse } from "next/server";
-import mongoose from "mongoose";
 
+import connectDB from "@/lib/mongodb";
 import Feedback from "@/models/Feedback";
-
-const MONGO_URI =
-  process.env.MONGODB_URI!;
-
-/* CONNECT DB */
-
-const connectDB = async () => {
-
-  if (
-    mongoose.connection.readyState >= 1
-  ) {
-    return;
-  }
-
-  await mongoose.connect(
-    MONGO_URI
-  );
-};
 
 /* DELETE FEEDBACK */
 

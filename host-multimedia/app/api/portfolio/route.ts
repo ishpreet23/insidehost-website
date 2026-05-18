@@ -1,44 +1,10 @@
+export const dynamic = "force-dynamic";
+
 import { NextResponse } from "next/server";
-import mongoose from "mongoose";
+
+import connectDB from "@/lib/mongodb";
 
 import Portfolio from "@/models/Portfolio";
-
-const MONGO_URI =
-  process.env.MONGODB_URI!;
-
-/* CONNECT DB */
-
-const connectDB = async () => {
-
-  try {
-
-    if (
-      mongoose.connection.readyState >= 1
-    ) {
-      return;
-    }
-
-    await mongoose.connect(
-      MONGO_URI,
-      {
-        dbName: "insidehost",
-      }
-    );
-
-    console.log(
-      "MongoDB Connected"
-    );
-
-  } catch (error) {
-
-    console.log(
-      "MongoDB Error:",
-      error
-    );
-
-    throw error;
-  }
-};
 
 /* =========================
    GET PORTFOLIO
@@ -84,6 +50,7 @@ export async function GET() {
     );
   }
 }
+
 /* =========================
    CREATE PORTFOLIO
 ========================= */
