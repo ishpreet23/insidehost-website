@@ -342,177 +342,187 @@ export default function WorksPage() {
                     (
                       item,
                       index
-                    ) => (
+                    ) => {
 
-                    <motion.div
-                      key={item._id}
-                      initial={{
-                        opacity: 0,
-                        y: 50,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        y: 0,
-                      }}
-                      transition={{
-                        duration: 0.5,
-                        delay:
-                          index * 0.1,
-                      }}
-                      viewport={{
-                        once: true,
-                      }}
-                      whileHover={{
-                        y: -10,
-                      }}
-                      className="
-                        group
-                        relative
-                        overflow-hidden
-                        rounded-[32px]
-                        border
-                        border-white/10
-                        bg-white/[0.05]
-                        backdrop-blur-2xl
-                      "
-                    >
+                      const optimizedVideo =
+                        item.mediaUrl?.replace(
+                          "/upload/",
+                          "/upload/f_mp4,q_auto/"
+                        );
 
-                      {/* MEDIA */}
+                      return (
 
-                      <div className="relative overflow-hidden">
-
-                        {item.type?.toLowerCase() ===
-                        "image" ? (
-
-                          <img
-                            src={
-                              item.mediaUrl
-                            }
-                            alt={item.title}
-                            className="
-                              w-full
-                              h-[340px]
-                              object-cover
-                              group-hover:scale-110
-                              transition-all
-                              duration-700
-                            "
-                          />
-
-                        ) : (
-
-                         <video
-  controls
-  playsInline
-  preload="metadata"
-  
-  className="
-    w-full
-    h-[340px]
-    object-cover
-    bg-black
-  "
->
-  <source
-    src={item.mediaUrl}
-    type="video/mp4"
-  />
-
-  Your browser does not support the video tag.
-</video>
-
-                        )}
-
-                        {/* OVERLAY */}
-
-                        <div
-  className="
-    absolute
-    inset-x-0
-    bottom-0
-    h-32
-    bg-gradient-to-t
-    from-black/80
-    to-transparent
-    pointer-events-none
-  "
-></div>
-
-                        {/* TYPE */}
-
-                        <div
+                        <motion.div
+                          key={item._id}
+                          initial={{
+                            opacity: 0,
+                            y: 50,
+                          }}
+                          whileInView={{
+                            opacity: 1,
+                            y: 0,
+                          }}
+                          transition={{
+                            duration: 0.5,
+                            delay:
+                              index * 0.1,
+                          }}
+                          viewport={{
+                            once: true,
+                          }}
+                          whileHover={{
+                            y: -10,
+                          }}
                           className="
-                            absolute
-                            top-5
-                            left-5
-                             pointer-events-none
-                            px-4
-                            py-2
-                            rounded-full
-                            bg-black/40
-                            backdrop-blur-xl
+                            group
+                            relative
+                            overflow-hidden
+                            rounded-[32px]
                             border
                             border-white/10
-                            flex
-                            items-center
-                            gap-2
-                            text-sm
-                            text-white
+                            bg-white/[0.05]
+                            backdrop-blur-2xl
                           "
                         >
 
-                          {item.type?.toLowerCase() ===
-                          "image" ? (
-                            <FiImage />
-                          ) : (
-                            <FiPlay />
-                          )}
+                          {/* MEDIA */}
 
-                          {item.type}
+                          <div className="relative overflow-hidden">
 
-                        </div>
+                            {item.type?.toLowerCase() ===
+                            "image" ? (
 
-                      </div>
+                              <img
+                                src={
+                                  item.mediaUrl
+                                }
+                                alt={item.title}
+                                className="
+                                  w-full
+                                  h-[340px]
+                                  object-cover
+                                  group-hover:scale-110
+                                  transition-all
+                                  duration-700
+                                "
+                              />
 
-                      {/* CONTENT */}
+                            ) : (
 
-                      <div className="p-7">
+                              <video
+                                controls
+                                playsInline
+                                muted
+                                preload="metadata"
+                                crossOrigin="anonymous"
+                                className="
+                                  w-full
+                                  h-[340px]
+                                  object-cover
+                                  bg-black
+                                "
+                              >
+                                <source
+                                  src={optimizedVideo}
+                                  type="video/mp4"
+                                />
 
-                        <h3
-                          className="
-                            text-2xl
-                            font-bold
-                            mb-3
-                          "
-                        >
-                          {item.title}
-                        </h3>
+                                Your browser does not support the video tag.
+                              </video>
 
-                        <p
-                          className="
-                            text-sm
-                            text-purple-300
-                            mb-3
-                          "
-                        >
-                          {item.category}
-                        </p>
+                            )}
 
-                        <p
-                          className="
-                            text-gray-400
-                            leading-relaxed
-                            text-sm
-                          "
-                        >
-                          {item.description}
-                        </p>
+                            {/* OVERLAY */}
 
-                      </div>
+                            <div
+                              className="
+                                absolute
+                                inset-x-0
+                                bottom-0
+                                h-32
+                                bg-gradient-to-t
+                                from-black/80
+                                to-transparent
+                                pointer-events-none
+                              "
+                            ></div>
 
-                    </motion.div>
+                            {/* TYPE */}
 
-                  ))}
+                            <div
+                              className="
+                                absolute
+                                top-5
+                                left-5
+                                pointer-events-none
+                                px-4
+                                py-2
+                                rounded-full
+                                bg-black/40
+                                backdrop-blur-xl
+                                border
+                                border-white/10
+                                flex
+                                items-center
+                                gap-2
+                                text-sm
+                                text-white
+                              "
+                            >
+
+                              {item.type?.toLowerCase() ===
+                              "image" ? (
+                                <FiImage />
+                              ) : (
+                                <FiPlay />
+                              )}
+
+                              {item.type}
+
+                            </div>
+
+                          </div>
+
+                          {/* CONTENT */}
+
+                          <div className="p-7">
+
+                            <h3
+                              className="
+                                text-2xl
+                                font-bold
+                                mb-3
+                              "
+                            >
+                              {item.title}
+                            </h3>
+
+                            <p
+                              className="
+                                text-sm
+                                text-purple-300
+                                mb-3
+                              "
+                            >
+                              {item.category}
+                            </p>
+
+                            <p
+                              className="
+                                text-gray-400
+                                leading-relaxed
+                                text-sm
+                              "
+                            >
+                              {item.description}
+                            </p>
+
+                          </div>
+
+                        </motion.div>
+
+                      );
+                    })}
 
                 </div>
 
