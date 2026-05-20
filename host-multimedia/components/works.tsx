@@ -411,6 +411,7 @@ export default function WorksPage() {
 
                               <video
                                 controls
+                                controlsList="nodownload"
                                 playsInline
                                 muted
                                 preload="metadata"
