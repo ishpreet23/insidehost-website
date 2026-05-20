@@ -401,33 +401,42 @@ export default function WorksPage() {
 
                         ) : (
 
-                          <video
-                            src={
-                              item.mediaUrl
-                            }
-                            controls
-                            className="
-                              w-full
-                              h-[340px]
-                              object-cover
-                              bg-black
-                            "
-                          />
+                         <video
+  controls
+  playsInline
+  preload="metadata"
+  
+  className="
+    w-full
+    h-[340px]
+    object-cover
+    bg-black
+  "
+>
+  <source
+    src={item.mediaUrl}
+    type="video/mp4"
+  />
+
+  Your browser does not support the video tag.
+</video>
 
                         )}
 
                         {/* OVERLAY */}
 
                         <div
-                          className="
-                            absolute
-                            inset-0
-                            bg-gradient-to-t
-                            from-black/80
-                            via-black/20
-                            to-transparent
-                          "
-                        ></div>
+  className="
+    absolute
+    inset-x-0
+    bottom-0
+    h-32
+    bg-gradient-to-t
+    from-black/80
+    to-transparent
+    pointer-events-none
+  "
+></div>
 
                         {/* TYPE */}
 
@@ -436,6 +445,7 @@ export default function WorksPage() {
                             absolute
                             top-5
                             left-5
+                             pointer-events-none
                             px-4
                             py-2
                             rounded-full
