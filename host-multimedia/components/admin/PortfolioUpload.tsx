@@ -445,6 +445,10 @@ export default function PortfolioUpload() {
                 Social Media Creatives
               </option>
 
+              <option value="Video Editing and Production">
+                Video Editing and Production
+              </option>
+
             </select>
 
             <textarea
