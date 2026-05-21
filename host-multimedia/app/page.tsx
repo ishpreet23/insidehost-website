@@ -7,15 +7,19 @@ import Clients from "../components/clients";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
+import BeforeAfterSlider from "../components/BeforeAfterSlider";
+
 export default function Home() {
   return (
     <main className="bg-[#05050a] text-white overflow-hidden">
+
+      {/* NAVBAR */}
       <Navbar />
 
-      {/* HERO SECTION */}
+      {/* HERO */}
       <Hero />
 
-      {/* NEW PREMIUM ABOUT SECTION */}
+      {/* ABOUT */}
       <About />
 
       {/* SERVICES */}
@@ -24,7 +28,10 @@ export default function Home() {
       {/* PORTFOLIO */}
       <Portfolio />
 
-      {/* CLIENT FEEDBACK */}
+      {/* BEFORE AFTER SLIDER */}
+      <BeforeAfterSlider />
+
+      {/* CLIENTS */}
       <Clients />
 
       {/* CONTACT */}
@@ -32,6 +39,7 @@ export default function Home() {
 
       {/* FOOTER */}
       <Footer />
+
     </main>
   );
 }

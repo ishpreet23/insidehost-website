@@ -344,12 +344,6 @@ export default function WorksPage() {
                       index
                     ) => {
 
-                      const optimizedVideo =
-                        item.mediaUrl?.replace(
-                          "/upload/",
-                          "/upload/f_mp4,q_auto/"
-                        );
-
                       return (
 
                         <motion.div
@@ -411,24 +405,24 @@ export default function WorksPage() {
 
                               <video
                                 controls
-                                controlsList="nodownload"
                                 playsInline
-                                muted
-                                preload="metadata"
-                                crossOrigin="anonymous"
+                                 controlsList="nodownload"
+                                preload="auto"
                                 className="
                                   w-full
                                   h-[340px]
-                                  object-cover
                                   bg-black
+                                  object-contain
                                 "
                               >
+
                                 <source
-                                  src={optimizedVideo}
+                                  src={item.mediaUrl}
                                   type="video/mp4"
                                 />
 
                                 Your browser does not support the video tag.
+
                               </video>
 
                             )}
