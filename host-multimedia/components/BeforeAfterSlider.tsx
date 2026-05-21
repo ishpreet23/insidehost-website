@@ -362,17 +362,9 @@ export default function BeforeAfterSlider() {
           </div>
 
       
-        {/* SLIDER WRAPPER */}
+      {/* SLIDER WRAPPER */}
 
-<motion.div
-  animate={{
-    left: `${sliderPosition}%`,
-  }}
-  transition={{
-    type: "spring",
-    stiffness: 500,
-    damping: 40,
-  }}
+<div
   className="
     absolute
     top-0
@@ -385,7 +377,7 @@ export default function BeforeAfterSlider() {
   }}
 >
 
-  {/* DARK GLOW */}
+  {/* DARK GLOW 
 
   <div
     className="
@@ -403,7 +395,7 @@ export default function BeforeAfterSlider() {
       filter: "blur(14px)",
     }}
   />
-
+*/}
   {/* SLIDER LINE */}
 
   <div
@@ -436,112 +428,111 @@ export default function BeforeAfterSlider() {
 
     {/* SLIDER BUTTON */}
 
-<motion.div
-  whileTap={{
-    scale: 0.95,
-  }}
-  whileHover={{
-    scale: 1.08,
-  }}
-  onMouseDown={() =>
-    setDragging(true)
-  }
-  onTouchStart={() =>
-    setDragging(true)
-  }
-  className="
-    relative
-    w-16
-    h-16
-    rounded-full
-    cursor-ew-resize
-    flex
-    items-center
-    justify-center
-  "
->
-
-  {/* OUTER GLOW RING */}
-
-  <div
-    className="
-      absolute
-      inset-0
-      rounded-full
-      bg-gradient-to-br
-      from-purple-500
-      via-pink-500
-      to-blue-500
-      blur-md
-      opacity-80
-      animate-pulse
-    "
-  />
-
-  {/* GLASS BUTTON */}
-
-  <div
-    className="
-      relative
-      w-full
-      h-full
-      rounded-full
-      border
-      border-white/20
-      bg-white/10
-      backdrop-blur-2xl
-      flex
-      items-center
-      justify-center
-      overflow-hidden
-      shadow-[0_0_40px_rgba(168,85,247,0.45)]
-    "
-  >
-
-    {/* INNER SHINE */}
-
-    <div
-      className="
-        absolute
-        top-0
-        left-0
-        w-full
-        h-full
-        bg-gradient-to-br
-        from-white/30
-        to-transparent
-      "
-    />
-
-    {/* ICON */}
-
-    <div
+    <motion.div
+      whileTap={{
+        scale: 0.95,
+      }}
+      whileHover={{
+        scale: 1.08,
+      }}
+      onMouseDown={() =>
+        setDragging(true)
+      }
+      onTouchStart={() =>
+        setDragging(true)
+      }
       className="
         relative
+        w-16
+        h-16
+        rounded-full
+        cursor-ew-resize
         flex
         items-center
-        gap-[2px]
+        justify-center
       "
     >
 
-      <span className="text-white text-sm font-black">
-        ◀
-      </span>
+      {/* OUTER GLOW RING */}
 
-      <span className="text-white text-sm font-black">
-        ▶
-      </span>
+      <div
+        className="
+          absolute
+          inset-0
+          rounded-full
+          bg-gradient-to-br
+          from-purple-500
+          via-pink-500
+          to-blue-500
+          blur-md
+          opacity-80
+          animate-pulse
+        "
+      />
 
-    </div>
+      {/* GLASS BUTTON */}
+
+      <div
+        className="
+          relative
+          w-full
+          h-full
+          rounded-full
+          border
+          border-white/20
+          bg-white/10
+          backdrop-blur-2xl
+          flex
+          items-center
+          justify-center
+          overflow-hidden
+          shadow-[0_0_40px_rgba(168,85,247,0.45)]
+        "
+      >
+
+        {/* INNER SHINE */}
+
+        <div
+          className="
+            absolute
+            top-0
+            left-0
+            w-full
+            h-full
+            bg-gradient-to-br
+            from-white/30
+            to-transparent
+          "
+        />
+
+        {/* ICON */}
+
+        <div
+          className="
+            relative
+            flex
+            items-center
+            gap-[2px]
+          "
+        >
+
+          <span className="text-white text-sm font-black">
+            ◀
+          </span>
+
+          <span className="text-white text-sm font-black">
+            ▶
+          </span>
+
+        </div>
+
+      </div>
+
+    </motion.div>
 
   </div>
 
-</motion.div>
-
-  </div>
-
-</motion.div>
-
+</div>
           {/* LABELS */}
 
           <div
