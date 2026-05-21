@@ -103,8 +103,6 @@ export default function Clients() {
         const data =
           await res.json();
 
-        /* FIXED ARRAY ISSUE */
-
         if (Array.isArray(data)) {
 
           setClients(data);
@@ -273,275 +271,525 @@ export default function Clients() {
       id="feedback"
       className="
         relative
-        py-28
+        py-32
         px-6
         md:px-20
         overflow-hidden
-        bg-gradient-to-br
-        from-[#0f0f1a]
-        via-[#1a1a2e]
-        to-[#0f172a]
+        bg-[#030712]
         text-white
       "
     >
 
-      {/* BG */}
+      {/* BG LIGHTS */}
 
-      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-purple-500/20 blur-3xl rounded-full"></div>
+      <div className="absolute top-[-200px] left-[-200px] w-[500px] h-[500px] bg-purple-500/20 blur-[150px] rounded-full"></div>
 
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-blue-500/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-[-200px] right-[-200px] w-[500px] h-[500px] bg-blue-500/20 blur-[150px] rounded-full"></div>
 
-      <div className="relative z-10 grid lg:grid-cols-2 gap-20">
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:90px_90px] opacity-[0.03]"></div>
 
-        {/* LEFT */}
+      <div className="relative z-10">
 
-        <div>
+        {/* TOP HEADER */}
 
-          <p className="text-purple-400 font-semibold mb-3 tracking-[3px] uppercase">
-            Why Choose Us
-          </p>
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
+          viewport={{
+            once: true,
+          }}
+          className="text-center mb-24"
+        >
 
-          <h2 className="text-5xl font-black leading-tight mb-12">
-            We Create <br />
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-3
+              px-7
+              py-3
+              rounded-full
+              border
+              border-white/10
+              bg-white/[0.05]
+              backdrop-blur-xl
+              mb-8
+            "
+          >
 
-            <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">
-              Premium Experiences
+            <div className="w-3 h-3 rounded-full bg-purple-400 animate-pulse"></div>
+
+            <span
+              className="
+                uppercase
+                tracking-[4px]
+                text-sm
+                text-white/70
+              "
+            >
+              INSIDEHOST REVIEWS
+            </span>
+
+          </div>
+
+          <h2
+            className="
+              text-5xl
+              md:text-7xl
+              font-black
+              leading-tight
+            "
+          >
+
+            Clients Love{" "}
+
+            <span
+              className="
+                bg-gradient-to-r
+                from-purple-400
+                via-pink-400
+                to-blue-400
+                bg-clip-text
+                text-transparent
+              "
+            >
+              Our Work
             </span>
 
           </h2>
 
-          <div className="space-y-5">
-
-            {whyChoose.map(
-              (
-                item,
-                i
-              ) => (
-
-                <motion.div
-                  key={i}
-                  whileHover={{
-                    scale: 1.03,
-                  }}
-                  className="relative group"
-                >
-
-                  <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-500/40 to-blue-500/40 rounded-3xl blur-xl opacity-50 group-hover:opacity-100 transition"></div>
-
-                  <div className="relative flex items-center gap-5 p-6 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/10">
-
-                    <div className="text-white p-4 rounded-2xl bg-gradient-to-r from-purple-500 to-blue-500 text-xl">
-                      {item.icon}
-                    </div>
-
-                    <div>
-
-                      <h4 className="font-semibold text-lg">
-                        {item.title}
-                      </h4>
-
-                      <p className="text-gray-400 mt-1 text-sm">
-                        {item.desc}
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                </motion.div>
-              )
-            )}
-
-          </div>
-
-        </div>
-
-        {/* RIGHT */}
-
-        <div>
-
-          <div className="flex justify-between items-center mb-8">
-
-            <div>
-
-              <p className="text-purple-400 font-semibold tracking-[3px] uppercase mb-2">
-                Client Reviews
-              </p>
-
-              <h2 className="text-4xl font-black">
-                Our Happy Clients
-              </h2>
-
-            </div>
-
-            <div className="flex gap-3">
-
-              <button
-                onClick={prev}
-                className="w-12 h-12 rounded-full bg-white/10 border border-white/10"
-              >
-                ←
-              </button>
-
-              <button
-                onClick={next}
-                className="w-12 h-12 rounded-full bg-white/10 border border-white/10"
-              >
-                →
-              </button>
-
-            </div>
-
-          </div>
-
-          {/* CARDS */}
-
-          <div className="grid md:grid-cols-3 gap-6">
-
-            {(Array.isArray(clients)
-              ? clients
-              : []
-            )
-              .slice(
-                index,
-                index +
-                  visibleCards
-              )
-              .map((c) => (
-
-                <motion.div
-                  key={c._id}
-                  whileHover={{
-                    y: -8,
-                  }}
-                  className="relative group"
-                >
-
-                  <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-500/40 to-blue-500/40 rounded-3xl blur-xl opacity-50"></div>
-
-                  <div className="relative p-6 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/10 h-full">
-
-                    <FaQuoteLeft className="text-purple-400 text-2xl mb-5" />
-
-                    <p className="text-gray-300 leading-relaxed mb-6 text-sm">
-                      {c.review}
-                    </p>
-
-                    <h4 className="font-semibold text-lg">
-                      {c.name}
-                    </h4>
-
-                  </div>
-
-                </motion.div>
-              ))}
-
-          </div>
-
-          {/* FORM */}
-
-          <form
-            onSubmit={
-              handleSubmit
-            }
-            className="mt-10 relative group"
+          <p
+            className="
+              mt-6
+              text-lg
+              text-gray-400
+              max-w-3xl
+              mx-auto
+            "
           >
+            Premium editing, futuristic visuals and cinematic experiences trusted by brands and creators.
+          </p>
 
-            <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-500/40 to-blue-500/40 rounded-3xl blur-xl opacity-60"></div>
+        </motion.div>
 
-            <div className="relative p-8 rounded-3xl bg-white/10 backdrop-blur-2xl border border-white/10">
+        {/* MAIN GRID */}
 
-              <h3 className="text-2xl font-bold mb-6">
-                Add Your Feedback
-              </h3>
+        <div className="grid lg:grid-cols-2 gap-20 items-start">
 
-              <AnimatePresence>
+          {/* LEFT SIDE */}
 
-                {message && (
+          <div>
+
+            <h3 className="text-4xl md:text-5xl font-black leading-tight mb-12">
+
+              Why Brands Choose{" "}
+
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-purple-400
+                  via-pink-400
+                  to-blue-400
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                InsideHost
+              </span>
+
+            </h3>
+
+            <div className="space-y-6">
+
+              {whyChoose.map(
+                (
+                  item,
+                  i
+                ) => (
 
                   <motion.div
-                    initial={{
-                      opacity: 0,
+                    key={i}
+                    whileHover={{
+                      y: -6,
+                      scale: 1.02,
                     }}
-                    animate={{
-                      opacity: 1,
-                    }}
-                    exit={{
-                      opacity: 0,
-                    }}
-                    className="mb-5 p-4 rounded-2xl bg-green-500/20 border border-green-400/30 text-green-300"
+                    className="
+                      relative
+                      group
+                    "
                   >
-                    {message}
+
+                    <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-500/30 via-pink-500/20 to-blue-500/30 rounded-[30px] blur-xl opacity-60 group-hover:opacity-100 transition duration-500"></div>
+
+                    <div
+                      className="
+                        relative
+                        flex
+                        items-center
+                        gap-5
+                        p-7
+                        rounded-[30px]
+                        border
+                        border-white/10
+                        bg-white/[0.05]
+                        backdrop-blur-2xl
+                        overflow-hidden
+                      "
+                    >
+
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-r from-purple-500/10 via-transparent to-blue-500/10"></div>
+
+                      <div
+                        className="
+                          relative
+                          w-16
+                          h-16
+                          rounded-2xl
+                          flex
+                          items-center
+                          justify-center
+                          text-2xl
+                          bg-gradient-to-br
+                          from-purple-500
+                          via-pink-500
+                          to-blue-500
+                          shadow-[0_10px_40px_rgba(168,85,247,0.45)]
+                        "
+                      >
+                        {item.icon}
+                      </div>
+
+                      <div className="relative">
+
+                        <h4 className="font-bold text-xl mb-1">
+                          {item.title}
+                        </h4>
+
+                        <p className="text-gray-400 leading-relaxed">
+                          {item.desc}
+                        </p>
+
+                      </div>
+
+                    </div>
+
                   </motion.div>
-                )}
-
-              </AnimatePresence>
-
-              {errorMessage && (
-
-                <div className="mb-5 p-4 rounded-2xl bg-red-500/20 border border-red-400/30 text-red-300">
-                  {errorMessage}
-                </div>
+                )
               )}
 
-              <input
-                type="text"
-                placeholder="Your Name"
-                value={form.name}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    name:
-                      e.target
-                        .value,
-                  })
-                }
-                className="w-full p-4 mb-4 rounded-2xl bg-white/10 border border-white/10 text-white"
-              />
+            </div>
 
-              <textarea
-                rows={5}
-                placeholder="Write your feedback..."
-                value={form.review}
-                onChange={(e) =>
-                  setForm({
-                    ...form,
-                    review:
-                      e.target
-                        .value,
-                  })
-                }
-                className="w-full p-4 mb-5 rounded-2xl bg-white/10 border border-white/10 text-white resize-none"
-              />
+          </div>
 
-              <button
-                type="submit"
-                disabled={
-                  loading
-                }
+          {/* RIGHT SIDE */}
+
+          <div>
+
+            {/* TOP */}
+
+            <div className="flex justify-between items-center mb-10">
+
+              <div>
+
+                <p className="text-purple-400 uppercase tracking-[4px] text-sm mb-3">
+                  Testimonials
+                </p>
+
+                <h3 className="text-4xl font-black">
+                  Happy Clients
+                </h3>
+
+              </div>
+
+              <div className="flex gap-3">
+
+                <button
+                  onClick={prev}
+                  className="
+                    w-14
+                    h-14
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/[0.05]
+                    backdrop-blur-xl
+                    hover:bg-white/10
+                    transition
+                    text-xl
+                  "
+                >
+                  ←
+                </button>
+
+                <button
+                  onClick={next}
+                  className="
+                    w-14
+                    h-14
+                    rounded-full
+                    border
+                    border-white/10
+                    bg-white/[0.05]
+                    backdrop-blur-xl
+                    hover:bg-white/10
+                    transition
+                    text-xl
+                  "
+                >
+                  →
+                </button>
+
+              </div>
+
+            </div>
+
+            {/* CARDS */}
+
+            <div className="grid md:grid-cols-3 gap-6">
+
+              {(Array.isArray(clients)
+                ? clients
+                : []
+              )
+                .slice(
+                  index,
+                  index +
+                    visibleCards
+                )
+                .map((c) => (
+
+                  <motion.div
+                    key={c._id}
+                    whileHover={{
+                      y: -10,
+                      scale: 1.02,
+                    }}
+                    className="relative group"
+                  >
+
+                    <div className="absolute -inset-[2px] rounded-[30px] bg-gradient-to-r from-purple-500/30 via-pink-500/20 to-blue-500/30 blur-xl opacity-60 group-hover:opacity-100 transition duration-500"></div>
+
+                    <div
+                      className="
+                        relative
+                        h-full
+                        p-7
+                        rounded-[30px]
+                        border
+                        border-white/10
+                        bg-white/[0.05]
+                        backdrop-blur-2xl
+                        overflow-hidden
+                      "
+                    >
+
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 bg-gradient-to-b from-purple-500/10 via-transparent to-blue-500/10"></div>
+
+                      <FaQuoteLeft className="relative text-purple-400 text-3xl mb-6" />
+
+                      <p className="relative text-gray-300 leading-relaxed mb-8 text-sm">
+                        {c.review}
+                      </p>
+
+                      <div className="relative">
+
+                        <h4 className="font-bold text-lg">
+                          {c.name}
+                        </h4>
+
+                        <div className="flex gap-1 mt-3 text-yellow-400">
+                          ⭐⭐⭐⭐⭐
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                  </motion.div>
+                ))}
+
+            </div>
+
+            {/* FORM */}
+
+            <motion.form
+              initial={{
+                opacity: 0,
+                y: 40,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                duration: 0.7,
+              }}
+              viewport={{
+                once: true,
+              }}
+              onSubmit={
+                handleSubmit
+              }
+              className="
+                relative
+                mt-12
+                group
+              "
+            >
+
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-purple-500/30 via-pink-500/20 to-blue-500/30 rounded-[36px] blur-xl opacity-70"></div>
+
+              <div
                 className="
-                  w-full
-                  py-4
-                  rounded-2xl
-                  bg-gradient-to-r
-                  from-purple-500
-                  via-pink-500
-                  to-blue-500
-                  text-white
-                  font-semibold
-                  text-lg
+                  relative
+                  p-8
+                  rounded-[36px]
+                  border
+                  border-white/10
+                  bg-white/[0.05]
+                  backdrop-blur-3xl
+                  overflow-hidden
                 "
               >
 
-                {loading
-                  ? "Submitting..."
-                  : "Submit Feedback →"}
+                <div className="absolute inset-0 opacity-40 bg-gradient-to-br from-purple-500/10 via-transparent to-blue-500/10"></div>
 
-              </button>
+                <h3 className="relative text-3xl font-black mb-8">
 
-            </div>
+                  Share Your Experience
 
-          </form>
+                </h3>
+
+                <AnimatePresence>
+
+                  {message && (
+
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        y: -10,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        y: 0,
+                      }}
+                      exit={{
+                        opacity: 0,
+                      }}
+                      className="relative mb-5 p-4 rounded-2xl bg-green-500/20 border border-green-400/30 text-green-300"
+                    >
+                      {message}
+                    </motion.div>
+                  )}
+
+                </AnimatePresence>
+
+                {errorMessage && (
+
+                  <div className="relative mb-5 p-4 rounded-2xl bg-red-500/20 border border-red-400/30 text-red-300">
+                    {errorMessage}
+                  </div>
+                )}
+
+                <input
+                  type="text"
+                  placeholder="Your Name"
+                  value={form.name}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      name:
+                        e.target
+                          .value,
+                    })
+                  }
+                  className="
+                    relative
+                    w-full
+                    p-5
+                    mb-5
+                    rounded-2xl
+                    bg-[#0f172a]
+                    border
+                    border-white/10
+                    text-white
+                    outline-none
+                    focus:border-purple-500
+                  "
+                />
+
+                <textarea
+                  rows={5}
+                  placeholder="Write your feedback..."
+                  value={form.review}
+                  onChange={(e) =>
+                    setForm({
+                      ...form,
+                      review:
+                        e.target
+                          .value,
+                    })
+                  }
+                  className="
+                    relative
+                    w-full
+                    p-5
+                    mb-6
+                    rounded-2xl
+                    bg-[#0f172a]
+                    border
+                    border-white/10
+                    text-white
+                    resize-none
+                    outline-none
+                    focus:border-purple-500
+                  "
+                />
+
+                <button
+                  type="submit"
+                  disabled={
+                    loading
+                  }
+                  className="
+                    relative
+                    w-full
+                    py-5
+                    rounded-2xl
+                    bg-gradient-to-r
+                    from-purple-500
+                    via-pink-500
+                    to-blue-500
+                    text-white
+                    font-bold
+                    text-lg
+                    shadow-[0_20px_60px_rgba(168,85,247,0.35)]
+                    hover:scale-[1.02]
+                    transition-all
+                    duration-300
+                  "
+                >
+
+                  {loading
+                    ? "Submitting..."
+                    : "Submit Feedback →"}
+
+                </button>
+
+              </div>
+
+            </motion.form>
+
+          </div>
 
         </div>
 
