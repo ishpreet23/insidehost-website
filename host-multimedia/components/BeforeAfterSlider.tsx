@@ -151,7 +151,7 @@ export default function BeforeAfterSlider() {
 
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:90px_90px] opacity-[0.03]"></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6">
+      <div className="relative z-10">
 
         {/* HEADER */}
 
@@ -170,7 +170,7 @@ export default function BeforeAfterSlider() {
           viewport={{
             once: true,
           }}
-          className="text-center mb-20"
+          className="text-center mb-20 px-6"
         >
 
           <div
@@ -267,19 +267,19 @@ export default function BeforeAfterSlider() {
             once: true,
           }}
           className="
-  relative
-  w-full
-  max-w-[950px]
-  mx-auto
-  h-[520px]
-  rounded-[42px]
-  overflow-hidden
-  border
-  border-white/10
-  bg-black
-  shadow-[0_20px_120px_rgba(168,85,247,0.25)]
-  select-none
-"
+            relative
+            w-[95%]
+            max-w-[950px]
+            mx-auto
+            h-[520px]
+            rounded-[42px]
+            overflow-hidden
+            border
+            border-white/10
+            bg-black
+            shadow-[0_20px_120px_rgba(168,85,247,0.25)]
+            select-none
+          "
           onMouseMove={(e) => {
 
             if (dragging) {
@@ -361,102 +361,186 @@ export default function BeforeAfterSlider() {
 
           </div>
 
-          {/* DARK GLOW */}
+      
+        {/* SLIDER WRAPPER */}
 
-          <div
-            className="
-              absolute
-              top-0
-              bottom-0
-              w-[120px]
-              z-20
-              pointer-events-none
-            "
-            style={{
-              left: `${sliderPosition}%`,
-              transform:
-                "translateX(-50%)",
-              background:
-                "linear-gradient(to right, transparent, rgba(0,0,0,0.55), transparent)",
-            }}
-          />
+<motion.div
+  animate={{
+    left: `${sliderPosition}%`,
+  }}
+  transition={{
+    type: "spring",
+    stiffness: 500,
+    damping: 40,
+  }}
+  className="
+    absolute
+    top-0
+    bottom-0
+    z-40
+  "
+  style={{
+    left: `${sliderPosition}%`,
+    transform: "translateX(-50%)",
+  }}
+>
 
-          {/* SLIDER LINE */}
+  {/* DARK GLOW */}
 
-          <div
-            className="
-              absolute
-              top-0
-              bottom-0
-              w-[4px]
-              bg-white
-              z-30
-            "
-            style={{
-              left: `${sliderPosition}%`,
-              transform:
-                "translateX(-50%)",
-            }}
-          >
+  <div
+    className="
+      absolute
+      top-0
+      bottom-0
+      left-1/2
+      -translate-x-1/2
+      w-[150px]
+      pointer-events-none
+    "
+    style={{
+      background:
+        "linear-gradient(to right, transparent, rgba(0,0,0,0.45), rgba(0,0,0,0.75), rgba(0,0,0,0.45), transparent)",
+      filter: "blur(14px)",
+    }}
+  />
 
-            <div className="absolute inset-0 bg-white blur-md opacity-80"></div>
+  {/* SLIDER LINE */}
 
-          </div>
+  <div
+    className="
+      absolute
+      top-0
+      bottom-0
+      left-1/2
+      -translate-x-1/2
+      w-[3px]
+      bg-white
+    "
+  >
 
-          {/* BUTTON */}
+    <div className="absolute inset-0 bg-white blur-md opacity-80"></div>
 
-          <motion.div
-            animate={{
-              left: `${sliderPosition}%`,
-            }}
-            transition={{
-              type: "spring",
-              stiffness: 550,
-              damping: 45,
-            }}
-            whileTap={{
-              scale: 1.08,
-            }}
-            onMouseDown={() =>
-              setDragging(true)
-            }
-            onTouchStart={() =>
-              setDragging(true)
-            }
-            className="
-              absolute
-              top-1/2
-              z-40
-              -translate-x-1/2
-              -translate-y-1/2
-              w-20
-              h-20
-              rounded-full
-              bg-gradient-to-br
-              from-purple-500
-              via-pink-500
-              to-blue-500
-              border-[5px]
-              border-white
-              shadow-[0_0_90px_rgba(168,85,247,0.9)]
-              flex
-              items-center
-              justify-center
-              cursor-ew-resize
-            "
-          >
+  </div>
 
-            <div
-              className="
-                text-white
-                text-3xl
-                font-black
-              "
-            >
-              ↔
-            </div>
+  {/* CENTER BUTTON WRAPPER */}
 
-          </motion.div>
+  <div
+    className="
+      absolute
+      top-1/2
+      left-1/2
+      -translate-x-1/2
+      -translate-y-1/2
+    "
+  >
+
+    {/* SLIDER BUTTON */}
+
+<motion.div
+  whileTap={{
+    scale: 0.95,
+  }}
+  whileHover={{
+    scale: 1.08,
+  }}
+  onMouseDown={() =>
+    setDragging(true)
+  }
+  onTouchStart={() =>
+    setDragging(true)
+  }
+  className="
+    relative
+    w-16
+    h-16
+    rounded-full
+    cursor-ew-resize
+    flex
+    items-center
+    justify-center
+  "
+>
+
+  {/* OUTER GLOW RING */}
+
+  <div
+    className="
+      absolute
+      inset-0
+      rounded-full
+      bg-gradient-to-br
+      from-purple-500
+      via-pink-500
+      to-blue-500
+      blur-md
+      opacity-80
+      animate-pulse
+    "
+  />
+
+  {/* GLASS BUTTON */}
+
+  <div
+    className="
+      relative
+      w-full
+      h-full
+      rounded-full
+      border
+      border-white/20
+      bg-white/10
+      backdrop-blur-2xl
+      flex
+      items-center
+      justify-center
+      overflow-hidden
+      shadow-[0_0_40px_rgba(168,85,247,0.45)]
+    "
+  >
+
+    {/* INNER SHINE */}
+
+    <div
+      className="
+        absolute
+        top-0
+        left-0
+        w-full
+        h-full
+        bg-gradient-to-br
+        from-white/30
+        to-transparent
+      "
+    />
+
+    {/* ICON */}
+
+    <div
+      className="
+        relative
+        flex
+        items-center
+        gap-[2px]
+      "
+    >
+
+      <span className="text-white text-sm font-black">
+        ◀
+      </span>
+
+      <span className="text-white text-sm font-black">
+        ▶
+      </span>
+
+    </div>
+
+  </div>
+
+</motion.div>
+
+  </div>
+
+</motion.div>
 
           {/* LABELS */}
 
@@ -506,7 +590,7 @@ export default function BeforeAfterSlider() {
 
         {/* TEXT */}
 
-        <div className="mt-24 text-center mb-14">
+        <div className="mt-24 text-center mb-14 px-6">
 
           <h3
             className="
@@ -548,9 +632,17 @@ export default function BeforeAfterSlider() {
 
         </div>
 
-        {/* ENDLESS GALLERY */}
+        {/* FULL WIDTH GALLERY */}
 
-        <div className="overflow-hidden">
+        <div className="relative w-full overflow-hidden">
+
+          {/* FADE LEFT */}
+
+          <div className="absolute left-0 top-0 z-20 h-full w-40 bg-gradient-to-r from-[#030712] to-transparent pointer-events-none"></div>
+
+          {/* FADE RIGHT */}
+
+          <div className="absolute right-0 top-0 z-20 h-full w-40 bg-gradient-to-l from-[#030712] to-transparent pointer-events-none"></div>
 
           <motion.div
             animate={{
@@ -568,6 +660,7 @@ export default function BeforeAfterSlider() {
               flex
               gap-8
               w-max
+              px-4
             "
           >
 
@@ -586,7 +679,8 @@ export default function BeforeAfterSlider() {
                   }}
                   className="
                     relative
-                    w-[380px]
+                    w-[85vw]
+                    sm:w-[420px]
                     h-[260px]
                     rounded-[32px]
                     overflow-hidden
